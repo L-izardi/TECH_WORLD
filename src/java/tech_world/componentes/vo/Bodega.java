@@ -5,7 +5,7 @@
  */
 package tech_world.componentes.vo;
 
-/**
+/** 
  *
  * @author Lizardi Alarcon
  */
@@ -14,7 +14,7 @@ public class Bodega {
     private String bodega_nombre;
     private int bodega_telefono;
     private int bodega_pais_cod;
-    
+     
     public Bodega(){
         
     }
