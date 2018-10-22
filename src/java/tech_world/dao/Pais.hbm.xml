@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.Pais" table="PAIS" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="paisCod" type="java.lang.Integer">
+            <column name="PAIS_COD" />
+            <generator class="identity" />
+        </id>
+        <property name="paisNombre" type="string">
+            <column name="PAIS_NOMBRE" length="45" />
+        </property>
+        <set name="proveedors" table="PROVEEDOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROVEEDOR_PAIS_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.Proveedor" />
+        </set>
+        <set name="sucursals" table="SUCURSAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SUCURSAL_PAIS_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.Sucursal" />
+        </set>
+        <set name="bodegas" table="BODEGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BODEGA_PAIS_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.Bodega" />
+        </set>
+    </class>
+</hibernate-mapping>

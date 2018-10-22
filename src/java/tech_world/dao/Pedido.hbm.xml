@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.Pedido" table="PEDIDO" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="pedidoCod" type="java.lang.Integer">
+            <column name="PEDIDO_COD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="tech_world.dao.Cliente" fetch="select">
+            <column name="PEDIDO_CLIENTE_COD" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="tech_world.dao.Empleado" fetch="select">
+            <column name="PEDIDO_EMPLEADO_COD" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sucursal" class="tech_world.dao.Sucursal" fetch="select">
+            <column name="PEDIDO_SUCURSAL_COD" not-null="true" />
+        </many-to-one>
+        <property name="pedidoFechacompra" type="date">
+            <column name="PEDIDO_FECHACOMPRA" length="10" />
+        </property>
+        <property name="pedidoPreciototal" type="java.lang.Float">
+            <column name="PEDIDO_PRECIOTOTAL" precision="12" scale="0" />
+        </property>
+        <set name="detallePedidos" table="DETALLE_PEDIDO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DP_PEDIDO_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.DetallePedido" />
+        </set>
+    </class>
+</hibernate-mapping>

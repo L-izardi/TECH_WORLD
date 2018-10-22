@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.Empleado" table="EMPLEADO" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="empleadoCod" type="java.lang.Integer">
+            <column name="EMPLEADO_COD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoEmpleado" class="tech_world.dao.TipoEmpleado" fetch="select">
+            <column name="EMPLEADO_TIPO_COD" not-null="true" />
+        </many-to-one>
+        <property name="empleadoSucursalCod" type="int">
+            <column name="EMPLEADO_SUCURSAL_COD" not-null="true" />
+        </property>
+        <property name="empleadoNombre" type="string">
+            <column name="EMPLEADO_NOMBRE" length="45" />
+        </property>
+        <property name="empleadoApellido" type="string">
+            <column name="EMPLEADO_APELLIDO" length="45" />
+        </property>
+        <property name="empleadoSalario" type="java.lang.Float">
+            <column name="EMPLEADO_SALARIO" precision="12" scale="0" />
+        </property>
+        <set name="pedidos" table="PEDIDO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PEDIDO_EMPLEADO_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.Pedido" />
+        </set>
+        <set name="ordenCompras" table="ORDEN_COMPRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OC_EMPLEADO_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.OrdenCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.OrdenCompra" table="ORDEN_COMPRA" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="ocCod" type="java.lang.Integer">
+            <column name="OC_COD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleado" class="tech_world.dao.Empleado" fetch="select">
+            <column name="OC_EMPLEADO_COD" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="tech_world.dao.Proveedor" fetch="select">
+            <column name="OC_PROVEEDOR_COD" not-null="true" />
+        </many-to-one>
+        <property name="ocFecha" type="date">
+            <column name="OC_FECHA" length="10" />
+        </property>
+        <property name="ocPreciototal" type="java.lang.Float">
+            <column name="OC_PRECIOTOTAL" precision="12" scale="0" />
+        </property>
+        <set name="detalleOrdens" table="DETALLE_ORDEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DO_OC_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.DetalleOrden" />
+        </set>
+    </class>
+</hibernate-mapping>

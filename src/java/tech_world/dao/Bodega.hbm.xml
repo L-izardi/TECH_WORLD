@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.Bodega" table="BODEGA" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="bodegaCod" type="java.lang.Integer">
+            <column name="BODEGA_COD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="pais" class="tech_world.dao.Pais" fetch="select">
+            <column name="BODEGA_PAIS_COD" not-null="true" />
+        </many-to-one>
+        <property name="bodegaNombre" type="string">
+            <column name="BODEGA_NOMBRE" length="45" />
+        </property>
+        <property name="bodegaDireccion" type="string">
+            <column name="BODEGA_DIRECCION" length="45" />
+        </property>
+        <property name="bodegaTelefono" type="string">
+            <column name="BODEGA_TELEFONO" length="45" />
+        </property>
+        <set name="productoBodegas" table="PRODUCTO_BODEGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PB_BODEGA_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.ProductoBodega" />
+        </set>
+        <set name="sucursalBodegas" table="SUCURSAL_BODEGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SB_BODEGA_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.SucursalBodega" />
+        </set>
+        <set name="ordenIngresos" table="ORDEN_INGRESO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OC_BODEGA_COD" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.OrdenIngreso" />
+        </set>
+    </class>
+</hibernate-mapping>

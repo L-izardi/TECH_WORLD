@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -39,33 +39,27 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.20.101:3306/TECH_WORLD?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">tech_world</property>
-    <property name="hibernate.connection.password">tech_world</property>
-    <mapping resource="tech_world/dao/SucursalBodega.hbm.xml"/>
-    <mapping resource="tech_world/dao/Pedido.hbm.xml"/>
-    <mapping resource="tech_world/dao/DetallePedido.hbm.xml"/>
-    <mapping resource="tech_world/dao/OrdenCompra.hbm.xml"/>
-    <mapping resource="tech_world/dao/Funcion.hbm.xml"/>
-    <mapping resource="tech_world/dao/Cliente.hbm.xml"/>
-    <mapping resource="tech_world/dao/Proveedor.hbm.xml"/>
-    <mapping resource="tech_world/dao/ProductoProveedor.hbm.xml"/>
-    <mapping resource="tech_world/dao/Marca.hbm.xml"/>
-    <mapping resource="tech_world/dao/DetalleIngreso.hbm.xml"/>
-    <mapping resource="tech_world/dao/Sucursal.hbm.xml"/>
-    <mapping resource="tech_world/dao/Usuario.hbm.xml"/>
-    <mapping resource="tech_world/dao/DetalleOrden.hbm.xml"/>
-    <mapping resource="tech_world/dao/ProductoBodega.hbm.xml"/>
-    <mapping resource="tech_world/dao/TipoEmpleado.hbm.xml"/>
-    <mapping resource="tech_world/dao/OrdenIngreso.hbm.xml"/>
-    <mapping resource="tech_world/dao/Pais.hbm.xml"/>
-    <mapping resource="tech_world/dao/Bodega.hbm.xml"/>
-    <mapping resource="tech_world/dao/Categoria.hbm.xml"/>
-    <mapping resource="tech_world/dao/Producto.hbm.xml"/>
-    <mapping resource="tech_world/dao/Empleado.hbm.xml"/>
-  </session-factory>
-</hibernate-configuration>
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="TECH_WORLD"/>
+  <table-filter match-name="ORDEN_COMPRA"/>
+  <table-filter match-name="BODEGA"/>
+  <table-filter match-name="PRODUCTO_BODEGA"/>
+  <table-filter match-name="USUARIO"/>
+  <table-filter match-name="PRODUCTO"/>
+  <table-filter match-name="PEDIDO"/>
+  <table-filter match-name="MARCA"/>
+  <table-filter match-name="EMPLEADO"/>
+  <table-filter match-name="CATEGORIA"/>
+  <table-filter match-name="DETALLE_INGRESO"/>
+  <table-filter match-name="SUCURSAL_BODEGA"/>
+  <table-filter match-name="PROVEEDOR"/>
+  <table-filter match-name="PRODUCTO_PROVEEDOR"/>
+  <table-filter match-name="CLIENTE"/>
+  <table-filter match-name="PAIS"/>
+  <table-filter match-name="DETALLE_PEDIDO"/>
+  <table-filter match-name="FUNCION"/>
+  <table-filter match-name="ORDEN_INGRESO"/>
+  <table-filter match-name="TIPO_EMPLEADO"/>
+  <table-filter match-name="DETALLE_ORDEN"/>
+  <table-filter match-name="SUCURSAL"/>
+</hibernate-reverse-engineering>

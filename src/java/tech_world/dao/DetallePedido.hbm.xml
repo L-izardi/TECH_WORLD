@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="tech_world.dao.DetallePedido" table="DETALLE_PEDIDO" catalog="TECH_WORLD" optimistic-lock="version">
+        <id name="dpCod" type="java.lang.Integer">
+            <column name="DP_COD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="pedido" class="tech_world.dao.Pedido" fetch="select">
+            <column name="DP_PEDIDO_COD" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="tech_world.dao.Producto" fetch="select">
+            <column name="DP_PRODUCTO_COD" not-null="true" />
+        </many-to-one>
+        <property name="dpCantidad" type="java.lang.Integer">
+            <column name="DP_CANTIDAD" />
+        </property>
+        <property name="dpGarantiainicio" type="string">
+            <column name="DP_GARANTIAINICIO" length="45" />
+        </property>
+        <property name="dpGarantiafinal" type="string">
+            <column name="DP_GARANTIAFINAL" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
