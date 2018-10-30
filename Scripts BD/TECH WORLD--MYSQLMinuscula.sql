@@ -55,12 +55,13 @@ create table if not exists cliente (
   cliente_cod int not null auto_increment,
   cliente_nombre varchar(45) null,
   cliente_apellido varchar(45) null,
-  cliente_dpi int null,
+  cliente_dpi BIGINT(13) null,
   cliente_nick varchar(45) null,
   cliente_pass varchar(45) null,
   cliente_email varchar(45) null,
   primary key (cliente_cod))
 engine = innodb;
+
 
 
 -- -----------------------------------------------------
