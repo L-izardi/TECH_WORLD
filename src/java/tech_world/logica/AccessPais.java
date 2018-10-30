@@ -7,38 +7,36 @@ package tech_world.logica;
 
 import java.util.List;
 import org.hibernate.Query;
-import org.hibernate.Transaction;
-import tech_world.dao.Categoria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import tech_world.dao.Pais;
 import tech_world.utils.HibernateUtil;
 
 /**
  *
  * @author Lizardi Alarcon
  */
-public class AccessCategoria {
-    
-    Session session=null;
-    //Acceso A categoria
-
-    public AccessCategoria() {
-        if(this.session==null){
+public class AccessPais {
+ 
+     Session session = null;
+    public AccessPais(){
+        if(session==null){
             this.session=HibernateUtil
                     .getSessionFactory()
                     .getCurrentSession();
         }
     }
-        
-    public List getCategoria(){
-       List<Categoria>listCategoria=null;
+    public List getPais(){
+       
+       List<Pais>listPais=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Categoria");
-       listCategoria=(List<Categoria>)q.list();
+       Query q=session.createQuery("from Pais");
+       listPais=(List<Pais>)q.list();
        tx.commit();
        }catch(Exception e){
            e.printStackTrace();
        }
-       return listCategoria;
+       return listPais;
     }
 }

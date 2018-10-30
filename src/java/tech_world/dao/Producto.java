@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,11 +18,10 @@ public class Producto  implements java.io.Serializable {
      private String productoImagen;
      private Float productoPrecio;
      private String productoGarantia;
-     private Set detalleIngresos = new HashSet(0);
-     private Set detallePedidos = new HashSet(0);
-     private Set sucursalBodegas = new HashSet(0);
-     private Set productoBodegas = new HashSet(0);
      private Set detalleOrdens = new HashSet(0);
+     private Set detallePedidos = new HashSet(0);
+     private Set detalleIngresos = new HashSet(0);
+     private Set productoBodegas = new HashSet(0);
      private Set productoProveedors = new HashSet(0);
 
     public Producto() {
@@ -33,18 +32,17 @@ public class Producto  implements java.io.Serializable {
         this.categoria = categoria;
         this.marca = marca;
     }
-    public Producto(Categoria categoria, Marca marca, String productoNombre, String productoImagen, Float productoPrecio, String productoGarantia, Set detalleIngresos, Set detallePedidos, Set sucursalBodegas, Set productoBodegas, Set detalleOrdens, Set productoProveedors) {
+    public Producto(Categoria categoria, Marca marca, String productoNombre, String productoImagen, Float productoPrecio, String productoGarantia, Set detalleOrdens, Set detallePedidos, Set detalleIngresos, Set productoBodegas, Set productoProveedors) {
        this.categoria = categoria;
        this.marca = marca;
        this.productoNombre = productoNombre;
        this.productoImagen = productoImagen;
        this.productoPrecio = productoPrecio;
        this.productoGarantia = productoGarantia;
-       this.detalleIngresos = detalleIngresos;
-       this.detallePedidos = detallePedidos;
-       this.sucursalBodegas = sucursalBodegas;
-       this.productoBodegas = productoBodegas;
        this.detalleOrdens = detalleOrdens;
+       this.detallePedidos = detallePedidos;
+       this.detalleIngresos = detalleIngresos;
+       this.productoBodegas = productoBodegas;
        this.productoProveedors = productoProveedors;
     }
    
@@ -97,12 +95,12 @@ public class Producto  implements java.io.Serializable {
     public void setProductoGarantia(String productoGarantia) {
         this.productoGarantia = productoGarantia;
     }
-    public Set getDetalleIngresos() {
-        return this.detalleIngresos;
+    public Set getDetalleOrdens() {
+        return this.detalleOrdens;
     }
     
-    public void setDetalleIngresos(Set detalleIngresos) {
-        this.detalleIngresos = detalleIngresos;
+    public void setDetalleOrdens(Set detalleOrdens) {
+        this.detalleOrdens = detalleOrdens;
     }
     public Set getDetallePedidos() {
         return this.detallePedidos;
@@ -111,12 +109,12 @@ public class Producto  implements java.io.Serializable {
     public void setDetallePedidos(Set detallePedidos) {
         this.detallePedidos = detallePedidos;
     }
-    public Set getSucursalBodegas() {
-        return this.sucursalBodegas;
+    public Set getDetalleIngresos() {
+        return this.detalleIngresos;
     }
     
-    public void setSucursalBodegas(Set sucursalBodegas) {
-        this.sucursalBodegas = sucursalBodegas;
+    public void setDetalleIngresos(Set detalleIngresos) {
+        this.detalleIngresos = detalleIngresos;
     }
     public Set getProductoBodegas() {
         return this.productoBodegas;
@@ -124,13 +122,6 @@ public class Producto  implements java.io.Serializable {
     
     public void setProductoBodegas(Set productoBodegas) {
         this.productoBodegas = productoBodegas;
-    }
-    public Set getDetalleOrdens() {
-        return this.detalleOrdens;
-    }
-    
-    public void setDetalleOrdens(Set detalleOrdens) {
-        this.detalleOrdens = detalleOrdens;
     }
     public Set getProductoProveedors() {
         return this.productoProveedors;

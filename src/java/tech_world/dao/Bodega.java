@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,9 +16,9 @@ public class Bodega  implements java.io.Serializable {
      private String bodegaNombre;
      private String bodegaDireccion;
      private String bodegaTelefono;
-     private Set productoBodegas = new HashSet(0);
-     private Set sucursalBodegas = new HashSet(0);
      private Set ordenIngresos = new HashSet(0);
+     private Set sucursalBodegas = new HashSet(0);
+     private Set productoBodegas = new HashSet(0);
 
     public Bodega() {
     }
@@ -27,14 +27,14 @@ public class Bodega  implements java.io.Serializable {
     public Bodega(Pais pais) {
         this.pais = pais;
     }
-    public Bodega(Pais pais, String bodegaNombre, String bodegaDireccion, String bodegaTelefono, Set productoBodegas, Set sucursalBodegas, Set ordenIngresos) {
+    public Bodega(Pais pais, String bodegaNombre, String bodegaDireccion, String bodegaTelefono, Set ordenIngresos, Set sucursalBodegas, Set productoBodegas) {
        this.pais = pais;
        this.bodegaNombre = bodegaNombre;
        this.bodegaDireccion = bodegaDireccion;
        this.bodegaTelefono = bodegaTelefono;
-       this.productoBodegas = productoBodegas;
-       this.sucursalBodegas = sucursalBodegas;
        this.ordenIngresos = ordenIngresos;
+       this.sucursalBodegas = sucursalBodegas;
+       this.productoBodegas = productoBodegas;
     }
    
     public Integer getBodegaCod() {
@@ -72,12 +72,12 @@ public class Bodega  implements java.io.Serializable {
     public void setBodegaTelefono(String bodegaTelefono) {
         this.bodegaTelefono = bodegaTelefono;
     }
-    public Set getProductoBodegas() {
-        return this.productoBodegas;
+    public Set getOrdenIngresos() {
+        return this.ordenIngresos;
     }
     
-    public void setProductoBodegas(Set productoBodegas) {
-        this.productoBodegas = productoBodegas;
+    public void setOrdenIngresos(Set ordenIngresos) {
+        this.ordenIngresos = ordenIngresos;
     }
     public Set getSucursalBodegas() {
         return this.sucursalBodegas;
@@ -86,12 +86,12 @@ public class Bodega  implements java.io.Serializable {
     public void setSucursalBodegas(Set sucursalBodegas) {
         this.sucursalBodegas = sucursalBodegas;
     }
-    public Set getOrdenIngresos() {
-        return this.ordenIngresos;
+    public Set getProductoBodegas() {
+        return this.productoBodegas;
     }
     
-    public void setOrdenIngresos(Set ordenIngresos) {
-        this.ordenIngresos = ordenIngresos;
+    public void setProductoBodegas(Set productoBodegas) {
+        this.productoBodegas = productoBodegas;
     }
 
 

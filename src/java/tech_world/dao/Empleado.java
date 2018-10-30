@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -17,8 +17,8 @@ public class Empleado  implements java.io.Serializable {
      private String empleadoNombre;
      private String empleadoApellido;
      private Float empleadoSalario;
-     private Set pedidos = new HashSet(0);
      private Set ordenCompras = new HashSet(0);
+     private Set pedidos = new HashSet(0);
 
     public Empleado() {
     }
@@ -28,14 +28,14 @@ public class Empleado  implements java.io.Serializable {
         this.tipoEmpleado = tipoEmpleado;
         this.empleadoSucursalCod = empleadoSucursalCod;
     }
-    public Empleado(TipoEmpleado tipoEmpleado, int empleadoSucursalCod, String empleadoNombre, String empleadoApellido, Float empleadoSalario, Set pedidos, Set ordenCompras) {
+    public Empleado(TipoEmpleado tipoEmpleado, int empleadoSucursalCod, String empleadoNombre, String empleadoApellido, Float empleadoSalario, Set ordenCompras, Set pedidos) {
        this.tipoEmpleado = tipoEmpleado;
        this.empleadoSucursalCod = empleadoSucursalCod;
        this.empleadoNombre = empleadoNombre;
        this.empleadoApellido = empleadoApellido;
        this.empleadoSalario = empleadoSalario;
-       this.pedidos = pedidos;
        this.ordenCompras = ordenCompras;
+       this.pedidos = pedidos;
     }
    
     public Integer getEmpleadoCod() {
@@ -80,19 +80,19 @@ public class Empleado  implements java.io.Serializable {
     public void setEmpleadoSalario(Float empleadoSalario) {
         this.empleadoSalario = empleadoSalario;
     }
-    public Set getPedidos() {
-        return this.pedidos;
-    }
-    
-    public void setPedidos(Set pedidos) {
-        this.pedidos = pedidos;
-    }
     public Set getOrdenCompras() {
         return this.ordenCompras;
     }
     
     public void setOrdenCompras(Set ordenCompras) {
         this.ordenCompras = ordenCompras;
+    }
+    public Set getPedidos() {
+        return this.pedidos;
+    }
+    
+    public void setPedidos(Set pedidos) {
+        this.pedidos = pedidos;
     }
 
 

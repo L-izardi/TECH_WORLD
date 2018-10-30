@@ -1,5 +1,5 @@
--- nombre de entidades: todo minuscula, separado por guion bajo (si fuese necesario) : nombretabla
--- nombre de atributos: todo minuscula, separado por guion bajo: nombretabla_atributo
+--nombre de entidades: todo mayuscula, separado por guion bajo (si fuese necesario) : nombretabla
+--nombre de atributos: todo mayuscula, separado por guion bajo: nombretabla_atributo
 
 -- -----------------------------------------------------
 -- schema tech_world
@@ -123,9 +123,11 @@ engine = innodb;
 -- table producto_bodega
 -- -----------------------------------------------------
 create table if not exists producto_bodega (
+  producto_bodega int not null auto_increment,
   pb_producto_cod int not null,
   pb_bodega_cod int not null,
   pb_cantidad int null,
+   primary key (producto_bodega),
   constraint fk_producto_bodega_producto
     foreign key (pb_producto_cod)
     references producto (producto_cod),
@@ -209,10 +211,12 @@ engine = innodb;
 -- table sucursal_bodega
 -- -----------------------------------------------------
 create table if not exists sucursal_bodega (
+  sucursal_bodega int not null auto_increment,
   sb_sucursal_cod int not null,
   sb_bodega_cod int not null,
   sb_producto_cod int not null,
   sb_cantidad int null,
+  primary key (sucursal_bodega),
   constraint fk_sucursal_has_bodega_sucursal
     foreign key (sb_sucursal_cod)
     references sucursal (sucursal_cod),

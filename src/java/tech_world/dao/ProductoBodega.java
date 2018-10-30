@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package tech_world.dao;
 public class ProductoBodega  implements java.io.Serializable {
 
 
-     private Integer pbCod;
+     private Integer productoBodega;
      private Bodega bodega;
      private Producto producto;
      private Integer pbCantidad;
@@ -28,12 +28,12 @@ public class ProductoBodega  implements java.io.Serializable {
        this.pbCantidad = pbCantidad;
     }
    
-    public Integer getPbCod() {
-        return this.pbCod;
+    public Integer getProductoBodega() {
+        return this.productoBodega;
     }
     
-    public void setPbCod(Integer pbCod) {
-        this.pbCod = pbCod;
+    public void setProductoBodega(Integer productoBodega) {
+        this.productoBodega = productoBodega;
     }
     public Bodega getBodega() {
         return this.bodega;

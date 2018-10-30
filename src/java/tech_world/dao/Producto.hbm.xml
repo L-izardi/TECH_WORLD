@@ -1,64 +1,58 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.Producto" table="PRODUCTO" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.Producto" table="producto" catalog="tech_world" optimistic-lock="version">
         <id name="productoCod" type="java.lang.Integer">
-            <column name="PRODUCTO_COD" />
+            <column name="producto_cod" />
             <generator class="identity" />
         </id>
         <many-to-one name="categoria" class="tech_world.dao.Categoria" fetch="select">
-            <column name="PRODUCTO_CATEGORIA_COD" not-null="true" />
+            <column name="producto_categoria_cod" not-null="true" />
         </many-to-one>
         <many-to-one name="marca" class="tech_world.dao.Marca" fetch="select">
-            <column name="PRODUCTO_MARCA_COD" not-null="true" />
+            <column name="producto_marca_cod" not-null="true" />
         </many-to-one>
         <property name="productoNombre" type="string">
-            <column name="PRODUCTO_NOMBRE" length="45" />
+            <column name="producto_nombre" length="45" />
         </property>
         <property name="productoImagen" type="string">
-            <column name="PRODUCTO_IMAGEN" length="45" />
+            <column name="producto_imagen" length="45" />
         </property>
         <property name="productoPrecio" type="java.lang.Float">
-            <column name="PRODUCTO_PRECIO" precision="12" scale="0" />
+            <column name="producto_precio" precision="12" scale="0" />
         </property>
         <property name="productoGarantia" type="string">
-            <column name="PRODUCTO_GARANTIA" length="45" />
+            <column name="producto_garantia" length="45" />
         </property>
-        <set name="detalleIngresos" table="DETALLE_INGRESO" inverse="true" lazy="true" fetch="select">
+        <set name="detalleOrdens" table="detalle_orden" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="DI_PRODUCTO_COD" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.DetalleIngreso" />
-        </set>
-        <set name="detallePedidos" table="DETALLE_PEDIDO" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="DP_PRODUCTO_COD" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.DetallePedido" />
-        </set>
-        <set name="sucursalBodegas" table="SUCURSAL_BODEGA" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="SB_PRODUCTO_COD" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.SucursalBodega" />
-        </set>
-        <set name="productoBodegas" table="PRODUCTO_BODEGA" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="PB_PRODUCTO_COD" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.ProductoBodega" />
-        </set>
-        <set name="detalleOrdens" table="DETALLE_ORDEN" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="DO_PRODUCTO_COD" not-null="true" />
+                <column name="do_producto_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.DetalleOrden" />
         </set>
-        <set name="productoProveedors" table="PRODUCTO_PROVEEDOR" inverse="true" lazy="true" fetch="select">
+        <set name="detallePedidos" table="detalle_pedido" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="PP_PRODUCTO_COD" not-null="true" />
+                <column name="dp_producto_cod" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.DetallePedido" />
+        </set>
+        <set name="detalleIngresos" table="detalle_ingreso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="di_producto_cod" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.DetalleIngreso" />
+        </set>
+        <set name="productoBodegas" table="producto_bodega" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pb_producto_cod" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.ProductoBodega" />
+        </set>
+        <set name="productoProveedors" table="producto_proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pp_producto_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.ProductoProveedor" />
         </set>

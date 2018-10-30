@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.DetalleIngreso" table="DETALLE_INGRESO" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.DetalleIngreso" table="detalle_ingreso" catalog="tech_world" optimistic-lock="version">
         <id name="diCod" type="java.lang.Integer">
-            <column name="DI_COD" />
+            <column name="di_cod" />
             <generator class="identity" />
         </id>
         <many-to-one name="ordenIngreso" class="tech_world.dao.OrdenIngreso" fetch="select">
-            <column name="DI_OI_COD" not-null="true" />
+            <column name="di_oi_cod" not-null="true" />
         </many-to-one>
         <many-to-one name="producto" class="tech_world.dao.Producto" fetch="select">
-            <column name="DI_PRODUCTO_COD" not-null="true" />
+            <column name="di_producto_cod" not-null="true" />
         </many-to-one>
         <property name="diCantidad" type="java.lang.Integer">
-            <column name="DI_CANTIDAD" />
+            <column name="di_cantidad" />
         </property>
         <property name="diVariacion" type="string">
-            <column name="DI_VARIACION" length="45" />
+            <column name="di_variacion" length="45" />
         </property>
     </class>
 </hibernate-mapping>

@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.Marca" table="MARCA" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.Marca" table="marca" catalog="tech_world" optimistic-lock="version">
         <id name="marcaCod" type="java.lang.Integer">
-            <column name="MARCA_COD" />
+            <column name="marca_cod" />
             <generator class="identity" />
         </id>
         <property name="nombre" type="string">
-            <column name="NOMBRE" length="45" />
+            <column name="nombre" length="45" />
         </property>
-        <set name="productos" table="PRODUCTO" inverse="true" lazy="true" fetch="select">
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="PRODUCTO_MARCA_COD" not-null="true" />
+                <column name="producto_marca_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.Producto" />
         </set>

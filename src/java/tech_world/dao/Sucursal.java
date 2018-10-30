@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,8 +15,8 @@ public class Sucursal  implements java.io.Serializable {
      private Pais pais;
      private String sucursalNombre;
      private String sucursalDireccion;
-     private Set pedidos = new HashSet(0);
      private Set sucursalBodegas = new HashSet(0);
+     private Set pedidos = new HashSet(0);
 
     public Sucursal() {
     }
@@ -25,12 +25,12 @@ public class Sucursal  implements java.io.Serializable {
     public Sucursal(Pais pais) {
         this.pais = pais;
     }
-    public Sucursal(Pais pais, String sucursalNombre, String sucursalDireccion, Set pedidos, Set sucursalBodegas) {
+    public Sucursal(Pais pais, String sucursalNombre, String sucursalDireccion, Set sucursalBodegas, Set pedidos) {
        this.pais = pais;
        this.sucursalNombre = sucursalNombre;
        this.sucursalDireccion = sucursalDireccion;
-       this.pedidos = pedidos;
        this.sucursalBodegas = sucursalBodegas;
+       this.pedidos = pedidos;
     }
    
     public Integer getSucursalCod() {
@@ -61,19 +61,19 @@ public class Sucursal  implements java.io.Serializable {
     public void setSucursalDireccion(String sucursalDireccion) {
         this.sucursalDireccion = sucursalDireccion;
     }
-    public Set getPedidos() {
-        return this.pedidos;
-    }
-    
-    public void setPedidos(Set pedidos) {
-        this.pedidos = pedidos;
-    }
     public Set getSucursalBodegas() {
         return this.sucursalBodegas;
     }
     
     public void setSucursalBodegas(Set sucursalBodegas) {
         this.sucursalBodegas = sucursalBodegas;
+    }
+    public Set getPedidos() {
+        return this.pedidos;
+    }
+    
+    public void setPedidos(Set pedidos) {
+        this.pedidos = pedidos;
     }
 
 

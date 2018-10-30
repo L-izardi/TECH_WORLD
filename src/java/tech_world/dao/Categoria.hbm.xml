@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.Categoria" table="CATEGORIA" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.Categoria" table="categoria" catalog="tech_world" optimistic-lock="version">
         <id name="categoriaCod" type="java.lang.Integer">
-            <column name="CATEGORIA_COD" />
+            <column name="categoria_cod" />
             <generator class="identity" />
         </id>
         <property name="categoriaDescripcion" type="string">
-            <column name="CATEGORIA_DESCRIPCION" length="45" />
+            <column name="categoria_descripcion" length="45" />
         </property>
-        <set name="productos" table="PRODUCTO" inverse="true" lazy="true" fetch="select">
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="PRODUCTO_CATEGORIA_COD" not-null="true" />
+                <column name="producto_categoria_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.Producto" />
         </set>

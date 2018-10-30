@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,34 +9,34 @@ package tech_world.dao;
 public class SucursalBodega  implements java.io.Serializable {
 
 
-     private Integer sbCod;
+     private Integer sucursalBodega;
      private Bodega bodega;
-     private Producto producto;
      private Sucursal sucursal;
+     private int sbProductoCod;
      private Integer sbCantidad;
 
     public SucursalBodega() {
     }
 
 	
-    public SucursalBodega(Bodega bodega, Producto producto, Sucursal sucursal) {
+    public SucursalBodega(Bodega bodega, Sucursal sucursal, int sbProductoCod) {
         this.bodega = bodega;
-        this.producto = producto;
         this.sucursal = sucursal;
+        this.sbProductoCod = sbProductoCod;
     }
-    public SucursalBodega(Bodega bodega, Producto producto, Sucursal sucursal, Integer sbCantidad) {
+    public SucursalBodega(Bodega bodega, Sucursal sucursal, int sbProductoCod, Integer sbCantidad) {
        this.bodega = bodega;
-       this.producto = producto;
        this.sucursal = sucursal;
+       this.sbProductoCod = sbProductoCod;
        this.sbCantidad = sbCantidad;
     }
    
-    public Integer getSbCod() {
-        return this.sbCod;
+    public Integer getSucursalBodega() {
+        return this.sucursalBodega;
     }
     
-    public void setSbCod(Integer sbCod) {
-        this.sbCod = sbCod;
+    public void setSucursalBodega(Integer sucursalBodega) {
+        this.sucursalBodega = sucursalBodega;
     }
     public Bodega getBodega() {
         return this.bodega;
@@ -45,19 +45,19 @@ public class SucursalBodega  implements java.io.Serializable {
     public void setBodega(Bodega bodega) {
         this.bodega = bodega;
     }
-    public Producto getProducto() {
-        return this.producto;
-    }
-    
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
     public Sucursal getSucursal() {
         return this.sucursal;
     }
     
     public void setSucursal(Sucursal sucursal) {
         this.sucursal = sucursal;
+    }
+    public int getSbProductoCod() {
+        return this.sbProductoCod;
+    }
+    
+    public void setSbProductoCod(int sbProductoCod) {
+        this.sbProductoCod = sbProductoCod;
     }
     public Integer getSbCantidad() {
         return this.sbCantidad;

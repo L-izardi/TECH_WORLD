@@ -43,9 +43,12 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.20.101:3306/TECH_WORLD?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.20.101:3306/tech_world?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">tech_world</property>
     <property name="hibernate.connection.password">tech_world</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <mapping resource="tech_world/dao/SucursalBodega.hbm.xml"/>
     <mapping resource="tech_world/dao/Pedido.hbm.xml"/>
     <mapping resource="tech_world/dao/DetallePedido.hbm.xml"/>

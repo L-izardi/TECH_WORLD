@@ -7,21 +7,21 @@ package tech_world.logica;
 
 import java.util.List;
 import org.hibernate.Query;
-import org.hibernate.Transaction;
-import tech_world.dao.Categoria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import tech_world.dao.Producto;
 import tech_world.utils.HibernateUtil;
 
 /**
  *
  * @author Lizardi Alarcon
  */
-public class AccessCategoria {
+public class AccessProducto {
     
     Session session=null;
-    //Acceso A categoria
+    //Acceso A productoss
 
-    public AccessCategoria() {
+    public AccessProducto() {
         if(this.session==null){
             this.session=HibernateUtil
                     .getSessionFactory()
@@ -29,16 +29,16 @@ public class AccessCategoria {
         }
     }
         
-    public List getCategoria(){
-       List<Categoria>listCategoria=null;
+    public List getProducto(){
+       List<Producto>listProductos=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Categoria");
-       listCategoria=(List<Categoria>)q.list();
+       Query q=session.createQuery("from Producto");
+       listProductos=(List<Producto>)q.list();
        tx.commit();
        }catch(Exception e){
            e.printStackTrace();
        }
-       return listCategoria;
+       return listProductos;
     }
 }

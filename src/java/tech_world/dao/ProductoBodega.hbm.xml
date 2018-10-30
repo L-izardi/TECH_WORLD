@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.ProductoBodega" table="PRODUCTO_BODEGA" catalog="TECH_WORLD" optimistic-lock="version">
-        <id name="pbCod" type="java.lang.Integer">
-            <column name="PB_COD" />
+    <class name="tech_world.dao.ProductoBodega" table="producto_bodega" catalog="tech_world" optimistic-lock="version">
+        <id name="productoBodega" type="java.lang.Integer">
+            <column name="producto_bodega" />
             <generator class="identity" />
         </id>
         <many-to-one name="bodega" class="tech_world.dao.Bodega" fetch="select">
-            <column name="PB_BODEGA_COD" not-null="true" />
+            <column name="pb_bodega_cod" not-null="true" />
         </many-to-one>
         <many-to-one name="producto" class="tech_world.dao.Producto" fetch="select">
-            <column name="PB_PRODUCTO_COD" not-null="true" />
+            <column name="pb_producto_cod" not-null="true" />
         </many-to-one>
         <property name="pbCantidad" type="java.lang.Integer">
-            <column name="PB_CANTIDAD" />
+            <column name="pb_cantidad" />
         </property>
     </class>
 </hibernate-mapping>

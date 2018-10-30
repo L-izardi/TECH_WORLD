@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.TipoEmpleado" table="TIPO_EMPLEADO" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.TipoEmpleado" table="tipo_empleado" catalog="tech_world" optimistic-lock="version">
         <id name="tipoCod" type="java.lang.Integer">
-            <column name="TIPO_COD" />
+            <column name="tipo_cod" />
             <generator class="identity" />
         </id>
         <property name="tipoDescripcion" type="string">
-            <column name="TIPO_DESCRIPCION" length="45" />
+            <column name="tipo_descripcion" length="45" />
         </property>
-        <set name="empleados" table="EMPLEADO" inverse="true" lazy="true" fetch="select">
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="EMPLEADO_TIPO_COD" not-null="true" />
+                <column name="empleado_tipo_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.Empleado" />
         </set>

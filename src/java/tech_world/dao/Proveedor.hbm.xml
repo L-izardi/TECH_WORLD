@@ -1,31 +1,31 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.Proveedor" table="PROVEEDOR" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.Proveedor" table="proveedor" catalog="tech_world" optimistic-lock="version">
         <id name="proveedorCod" type="java.lang.Integer">
-            <column name="PROVEEDOR_COD" />
+            <column name="proveedor_cod" />
             <generator class="identity" />
         </id>
         <many-to-one name="pais" class="tech_world.dao.Pais" fetch="select">
-            <column name="PROVEEDOR_PAIS_COD" not-null="true" />
+            <column name="proveedor_pais_cod" not-null="true" />
         </many-to-one>
         <property name="proveedorNombre" type="string">
-            <column name="PROVEEDOR_NOMBRE" length="45" />
+            <column name="proveedor_nombre" length="45" />
         </property>
         <property name="proveedorTelefono" type="java.lang.Integer">
-            <column name="PROVEEDOR_TELEFONO" />
+            <column name="proveedor_telefono" />
         </property>
-        <set name="productoProveedors" table="PRODUCTO_PROVEEDOR" inverse="true" lazy="true" fetch="select">
+        <set name="productoProveedors" table="producto_proveedor" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="PP_PROVEEDOR_COD" not-null="true" />
+                <column name="pp_proveedor_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.ProductoProveedor" />
         </set>
-        <set name="ordenCompras" table="ORDEN_COMPRA" inverse="true" lazy="true" fetch="select">
+        <set name="ordenCompras" table="orden_compra" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="OC_PROVEEDOR_COD" not-null="true" />
+                <column name="oc_proveedor_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.OrdenCompra" />
         </set>

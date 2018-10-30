@@ -40,26 +40,26 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="TECH_WORLD"/>
-  <table-filter match-name="ORDEN_COMPRA"/>
-  <table-filter match-name="BODEGA"/>
-  <table-filter match-name="PRODUCTO_BODEGA"/>
-  <table-filter match-name="USUARIO"/>
-  <table-filter match-name="PRODUCTO"/>
-  <table-filter match-name="PEDIDO"/>
-  <table-filter match-name="MARCA"/>
-  <table-filter match-name="EMPLEADO"/>
-  <table-filter match-name="CATEGORIA"/>
-  <table-filter match-name="DETALLE_INGRESO"/>
-  <table-filter match-name="SUCURSAL_BODEGA"/>
-  <table-filter match-name="PROVEEDOR"/>
-  <table-filter match-name="PRODUCTO_PROVEEDOR"/>
-  <table-filter match-name="CLIENTE"/>
-  <table-filter match-name="PAIS"/>
-  <table-filter match-name="DETALLE_PEDIDO"/>
-  <table-filter match-name="FUNCION"/>
-  <table-filter match-name="ORDEN_INGRESO"/>
-  <table-filter match-name="TIPO_EMPLEADO"/>
-  <table-filter match-name="DETALLE_ORDEN"/>
-  <table-filter match-name="SUCURSAL"/>
+  <schema-selection match-catalog="tech_world"/>
+  <table-filter match-name="orden_ingreso"/>
+  <table-filter match-name="producto"/>
+  <table-filter match-name="bodega"/>
+  <table-filter match-name="producto_bodega"/>
+  <table-filter match-name="sucursal"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="producto_proveedor"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="marca"/>
+  <table-filter match-name="detalle_ingreso"/>
+  <table-filter match-name="categoria"/>
+  <table-filter match-name="orden_compra"/>
+  <table-filter match-name="detalle_pedido"/>
+  <table-filter match-name="sucursal_bodega"/>
+  <table-filter match-name="detalle_orden"/>
+  <table-filter match-name="pedido"/>
+  <table-filter match-name="empleado"/>
+  <table-filter match-name="proveedor"/>
+  <table-filter match-name="pais"/>
+  <table-filter match-name="tipo_empleado"/>
+  <table-filter match-name="funcion"/>
 </hibernate-reverse-engineering>

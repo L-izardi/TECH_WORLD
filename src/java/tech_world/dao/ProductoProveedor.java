@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,24 +9,25 @@ package tech_world.dao;
 public class ProductoProveedor  implements java.io.Serializable {
 
 
-     private Integer ppCod;
+     private ProductoProveedorId id;
      private Producto producto;
      private Proveedor proveedor;
 
     public ProductoProveedor() {
     }
 
-    public ProductoProveedor(Producto producto, Proveedor proveedor) {
+    public ProductoProveedor(ProductoProveedorId id, Producto producto, Proveedor proveedor) {
+       this.id = id;
        this.producto = producto;
        this.proveedor = proveedor;
     }
    
-    public Integer getPpCod() {
-        return this.ppCod;
+    public ProductoProveedorId getId() {
+        return this.id;
     }
     
-    public void setPpCod(Integer ppCod) {
-        this.ppCod = ppCod;
+    public void setId(ProductoProveedorId id) {
+        this.id = id;
     }
     public Producto getProducto() {
         return this.producto;

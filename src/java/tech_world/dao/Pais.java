@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 22/10/2018 02:49:58 PM by Hibernate Tools 4.3.1
+// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,18 +13,18 @@ public class Pais  implements java.io.Serializable {
 
      private Integer paisCod;
      private String paisNombre;
-     private Set proveedors = new HashSet(0);
-     private Set sucursals = new HashSet(0);
      private Set bodegas = new HashSet(0);
+     private Set sucursals = new HashSet(0);
+     private Set proveedors = new HashSet(0);
 
     public Pais() {
     }
 
-    public Pais(String paisNombre, Set proveedors, Set sucursals, Set bodegas) {
+    public Pais(String paisNombre, Set bodegas, Set sucursals, Set proveedors) {
        this.paisNombre = paisNombre;
-       this.proveedors = proveedors;
-       this.sucursals = sucursals;
        this.bodegas = bodegas;
+       this.sucursals = sucursals;
+       this.proveedors = proveedors;
     }
    
     public Integer getPaisCod() {
@@ -41,12 +41,12 @@ public class Pais  implements java.io.Serializable {
     public void setPaisNombre(String paisNombre) {
         this.paisNombre = paisNombre;
     }
-    public Set getProveedors() {
-        return this.proveedors;
+    public Set getBodegas() {
+        return this.bodegas;
     }
     
-    public void setProveedors(Set proveedors) {
-        this.proveedors = proveedors;
+    public void setBodegas(Set bodegas) {
+        this.bodegas = bodegas;
     }
     public Set getSucursals() {
         return this.sucursals;
@@ -55,12 +55,12 @@ public class Pais  implements java.io.Serializable {
     public void setSucursals(Set sucursals) {
         this.sucursals = sucursals;
     }
-    public Set getBodegas() {
-        return this.bodegas;
+    public Set getProveedors() {
+        return this.proveedors;
     }
     
-    public void setBodegas(Set bodegas) {
-        this.bodegas = bodegas;
+    public void setProveedors(Set proveedors) {
+        this.proveedors = proveedors;
     }
 
 

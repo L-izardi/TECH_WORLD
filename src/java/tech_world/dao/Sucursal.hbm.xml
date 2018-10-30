@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.Sucursal" table="SUCURSAL" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.Sucursal" table="sucursal" catalog="tech_world" optimistic-lock="version">
         <id name="sucursalCod" type="java.lang.Integer">
-            <column name="SUCURSAL_COD" />
+            <column name="sucursal_cod" />
             <generator class="identity" />
         </id>
         <many-to-one name="pais" class="tech_world.dao.Pais" fetch="select">
-            <column name="SUCURSAL_PAIS_COD" not-null="true" />
+            <column name="sucursal_pais_cod" not-null="true" />
         </many-to-one>
         <property name="sucursalNombre" type="string">
-            <column name="SUCURSAL_NOMBRE" length="45" />
+            <column name="sucursal_nombre" length="45" />
         </property>
         <property name="sucursalDireccion" type="string">
-            <column name="SUCURSAL_DIRECCION" length="45" />
+            <column name="sucursal_direccion" length="45" />
         </property>
-        <set name="pedidos" table="PEDIDO" inverse="true" lazy="true" fetch="select">
+        <set name="sucursalBodegas" table="sucursal_bodega" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="PEDIDO_SUCURSAL_COD" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.Pedido" />
-        </set>
-        <set name="sucursalBodegas" table="SUCURSAL_BODEGA" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="SB_SUCURSAL_COD" not-null="true" />
+                <column name="sb_sucursal_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.SucursalBodega" />
+        </set>
+        <set name="pedidos" table="pedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pedido_sucursal_cod" not-null="true" />
+            </key>
+            <one-to-many class="tech_world.dao.Pedido" />
         </set>
     </class>
 </hibernate-mapping>

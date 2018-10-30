@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.OrdenIngreso" table="ORDEN_INGRESO" catalog="TECH_WORLD" optimistic-lock="version">
+    <class name="tech_world.dao.OrdenIngreso" table="orden_ingreso" catalog="tech_world" optimistic-lock="version">
         <id name="oiCod" type="java.lang.Integer">
-            <column name="OI_COD" />
+            <column name="oi_cod" />
             <generator class="identity" />
         </id>
         <many-to-one name="bodega" class="tech_world.dao.Bodega" fetch="select">
-            <column name="OC_BODEGA_COD" not-null="true" />
+            <column name="oc_bodega_cod" not-null="true" />
         </many-to-one>
         <property name="oiFechaingreso" type="date">
-            <column name="OI_FECHAINGRESO" length="10" />
+            <column name="oi_fechaingreso" length="10" />
         </property>
-        <set name="detalleIngresos" table="DETALLE_INGRESO" inverse="true" lazy="true" fetch="select">
+        <set name="detalleIngresos" table="detalle_ingreso" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="DI_OI_COD" not-null="true" />
+                <column name="di_oi_cod" not-null="true" />
             </key>
             <one-to-many class="tech_world.dao.DetalleIngreso" />
         </set>

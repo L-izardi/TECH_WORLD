@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/10/2018 02:49:59 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="tech_world.dao.SucursalBodega" table="SUCURSAL_BODEGA" catalog="TECH_WORLD" optimistic-lock="version">
-        <id name="sbCod" type="java.lang.Integer">
-            <column name="SB_COD" />
+    <class name="tech_world.dao.SucursalBodega" table="sucursal_bodega" catalog="tech_world" optimistic-lock="version">
+        <id name="sucursalBodega" type="java.lang.Integer">
+            <column name="sucursal_bodega" />
             <generator class="identity" />
         </id>
         <many-to-one name="bodega" class="tech_world.dao.Bodega" fetch="select">
-            <column name="SB_BODEGA_COD" not-null="true" />
-        </many-to-one>
-        <many-to-one name="producto" class="tech_world.dao.Producto" fetch="select">
-            <column name="SB_PRODUCTO_COD" not-null="true" />
+            <column name="sb_bodega_cod" not-null="true" />
         </many-to-one>
         <many-to-one name="sucursal" class="tech_world.dao.Sucursal" fetch="select">
-            <column name="SB_SUCURSAL_COD" not-null="true" />
+            <column name="sb_sucursal_cod" not-null="true" />
         </many-to-one>
+        <property name="sbProductoCod" type="int">
+            <column name="sb_producto_cod" not-null="true" />
+        </property>
         <property name="sbCantidad" type="java.lang.Integer">
-            <column name="SB_CANTIDAD" />
+            <column name="sb_cantidad" />
         </property>
     </class>
 </hibernate-mapping>
