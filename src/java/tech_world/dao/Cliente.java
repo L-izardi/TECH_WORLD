@@ -1,5 +1,5 @@
 package tech_world.dao;
-// Generated 29/10/2018 09:18:53 PM by Hibernate Tools 4.3.1
+// Generated 30/10/2018 01:09:58 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class Cliente  implements java.io.Serializable {
      private Integer clienteCod;
      private String clienteNombre;
      private String clienteApellido;
-     private Integer clienteDpi;
+     private Long clienteDpi;
      private String clienteNick;
      private String clientePass;
      private String clienteEmail;
@@ -23,7 +23,7 @@ public class Cliente  implements java.io.Serializable {
     public Cliente() {
     }
 
-    public Cliente(String clienteNombre, String clienteApellido, Integer clienteDpi, String clienteNick, String clientePass, String clienteEmail, Set pedidos) {
+    public Cliente(String clienteNombre, String clienteApellido, Long clienteDpi, String clienteNick, String clientePass, String clienteEmail, Set pedidos) {
        this.clienteNombre = clienteNombre;
        this.clienteApellido = clienteApellido;
        this.clienteDpi = clienteDpi;
@@ -54,11 +54,11 @@ public class Cliente  implements java.io.Serializable {
     public void setClienteApellido(String clienteApellido) {
         this.clienteApellido = clienteApellido;
     }
-    public Integer getClienteDpi() {
+    public Long getClienteDpi() {
         return this.clienteDpi;
     }
     
-    public void setClienteDpi(Integer clienteDpi) {
+    public void setClienteDpi(Long clienteDpi) {
         this.clienteDpi = clienteDpi;
     }
     public String getClienteNick() {
