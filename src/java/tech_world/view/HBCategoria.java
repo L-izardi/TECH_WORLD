@@ -8,20 +8,20 @@ package tech_world.view;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-//import tech_world.dao.Categoria;
+import tech_world.dao.Categoria;
 import tech_world.logica.AccessCategoria;
 
 /**
  *
  * @author Lizardi Alarcon
-
+ */
 @ManagedBean(name = "mbcategoria")
 @SessionScoped
 public class HBCategoria {
     private List<Categoria> Categoria;
     /**
      * Creates a new instance of HBCategoria
-   
+    */
     public HBCategoria() {
     }
     
@@ -30,7 +30,5 @@ public class HBCategoria {
         Categoria= categoria.getCategoria();
         return Categoria;
     }
-    
-      
+         
 }
-*/
