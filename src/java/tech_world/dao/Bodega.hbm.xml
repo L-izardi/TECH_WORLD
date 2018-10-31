@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29/10/2018 09:18:55 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 31/10/2018 04:57:02 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="tech_world.dao.Bodega" table="bodega" catalog="tech_world" optimistic-lock="version">
         <id name="bodegaCod" type="java.lang.Integer">
@@ -15,7 +15,7 @@
             <column name="bodega_nombre" length="45" />
         </property>
         <property name="bodegaDireccion" type="string">
-            <column name="bodega_direccion" length="45" />
+            <column name="bodega_direccion" length="250" />
         </property>
         <property name="bodegaTelefono" type="string">
             <column name="bodega_telefono" length="45" />
