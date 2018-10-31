@@ -23,12 +23,27 @@ public class HBCategoria {
      * Creates a new instance of HBCategoria
     */
     public HBCategoria() {
+    } 
+    
+     private Categoria categoria = new Categoria();
+
+    public Categoria getCliente() {
+        return categoria;
     }
+
+    public void setCliente(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
     
     public List<Categoria> getCategorias() {
         AccessCategoria categoria = new AccessCategoria();
         Categoria= categoria.getCategoria();
         return Categoria;
     }
-         
+    public List<Categoria> busqCategoria(){
+         AccessCategoria categoria = new AccessCategoria();
+         Categoria= categoria.getCategoria();
+        return Categoria;
+    }      
 }
