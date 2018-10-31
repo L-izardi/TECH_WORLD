@@ -25,7 +25,7 @@ public class HBCategoria {
     public HBCategoria() {
     }
     
-    public List<Categoria> getCustomers() {
+    public List<Categoria> getCategorias() {
         AccessCategoria categoria = new AccessCategoria();
         Categoria= categoria.getCategoria();
         return Categoria;

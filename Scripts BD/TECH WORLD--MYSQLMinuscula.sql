@@ -1,5 +1,5 @@
---nombre de entidades: todo mayuscula, separado por guion bajo (si fuese necesario) : nombretabla
---nombre de atributos: todo mayuscula, separado por guion bajo: nombretabla_atributo
+-- nombre de entidades: todo mayuscula, separado por guion bajo (si fuese necesario) : nombretabla
+-- nombre de atributos: todo mayuscula, separado por guion bajo: nombretabla_atributo
 
 -- -----------------------------------------------------
 -- schema tech_world

@@ -9,16 +9,16 @@
     </h:head>
     <h:body>
         
-        <b:navLink value="Inicio" href="menu.xhtml"></b:navLink>
+        <b:navLink value="Inicio" href="faces/menu.xhtml"></b:navLink>
         <h:form>     
-            <h:dataTable value="#{mbcliente.cliente}" var="cli">
+            <h:dataTable value="#{mbcategoria.categorias}" var="cli">
             <h:column>
                 <f:facet name="header">ID</f:facet>
-                <h:outputLabel value="#{cli.clienteNombre}"></h:outputLabel>
+                <h:outputLabel value="#{cli.categoriaCod}"></h:outputLabel>
             </h:column>
             <h:column >
                 <f:facet name="header">NAME</f:facet>
-                <h:outputLabel value="#{cli.clienteApellido}"></h:outputLabel>
+                <h:outputLabel value="#{cli.categoriaDescripcion}"></h:outputLabel>
             </h:column>
             
         </h:dataTable>
