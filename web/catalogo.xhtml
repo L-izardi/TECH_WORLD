@@ -1,12 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+     xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Catalogo</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        
+        <b:navLink value="Inicio" href="menu.xhtml"></b:navLink>
+        <h:form>     
+            <h:dataTable value="#{mbcliente.cliente}" var="cli">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputLabel value="#{cli.clienteNombre}"></h:outputLabel>
+            </h:column>
+            <h:column >
+                <f:facet name="header">NAME</f:facet>
+                <h:outputLabel value="#{cli.clienteApellido}"></h:outputLabel>
+            </h:column>
+            
+        </h:dataTable>
+        </h:form>
     </h:body>
+    
 </html>
 
