@@ -51,7 +51,7 @@ public class AccessCategoria {
        tx.commit();
        }catch(Exception e){
            e.printStackTrace();
-       }
+       } 
        return listCategoria;
     }
 }

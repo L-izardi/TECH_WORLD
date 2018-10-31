@@ -45,5 +45,5 @@ public class HBCategoria {
          AccessCategoria categoria = new AccessCategoria();
          Categoria= categoria.getCategoria();
         return Categoria;
-    }     
+    }      
 }
