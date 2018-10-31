@@ -23,7 +23,7 @@ public class HBCategoria {
      * Creates a new instance of HBCategoria
     */
     public HBCategoria() {
-    }
+    } 
     
      private Categoria categoria = new Categoria();
 
