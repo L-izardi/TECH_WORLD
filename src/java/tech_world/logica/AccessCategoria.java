@@ -17,7 +17,7 @@ import tech_world.utils.HibernateUtil;
  * @author Lizardi Alarcon
  */
 public class AccessCategoria {
-    
+      
     Session session=null;
     //Acceso A categoria
 
@@ -34,6 +34,19 @@ public class AccessCategoria {
        try{
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Categoria");
+       listCategoria=(List<Categoria>)q.list();
+       tx.commit();
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+       return listCategoria;
+    }
+    
+    public List busCategoria(Categoria categoria){
+        List<Categoria>listCategoria=null;
+       try{
+       Transaction tx= session.beginTransaction();
+       Query q=session.createQuery("from Categoria where '"+categoria.getCategoriaDescripcion()+ "'");
        listCategoria=(List<Categoria>)q.list();
        tx.commit();
        }catch(Exception e){
