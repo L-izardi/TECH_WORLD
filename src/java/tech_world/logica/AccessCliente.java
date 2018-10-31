@@ -5,39 +5,36 @@
  */
 package tech_world.logica;
 
-import java.util.List;
-import tech_world.dao.Cliente;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import tech_world.dao.Cliente;
 import tech_world.utils.HibernateUtil;
 
 /**
  *
- * @author Lizardi Alarcon
+ * @author soporte
  */
 public class AccessCliente {
-    Session session = null;
+    
+    private Session session = null;
+    
+    public Cliente verificarDatos(Cliente cliente) throws Exception{
+    Cliente cli = null; 
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            String hql ="FROM Cliente WHERE cliente_email = '" + cliente.getClienteEmail()
+                        +"' and cliente_pass = '" + cliente.getClientePass() + "'";
+           
+            Query query = session.createQuery(hql);
 
-    public AccessCliente() {
-        if(this.session==null){
-            this.session=HibernateUtil
-                    .getSessionFactory()
-                    .getCurrentSession();
-        }
-    }
-    
-    
-     public List getClientes(){
-       List<Cliente>listCustomer=null;
-       try{
-       Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from cliente");
-       listCustomer=(List<Cliente>)q.list();
-       tx.commit();
-       }catch(Exception e){
-           e.printStackTrace();
-       }
-       return listCustomer;
+            if(!query.list().isEmpty()){
+                cli = (Cliente) query.list().get(0);
+            
+
+        }}catch(Exception e){
+                throw e;
+            }
+        return cli;
     }
 }

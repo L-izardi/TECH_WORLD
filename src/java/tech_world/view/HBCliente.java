@@ -5,29 +5,72 @@
  */
 package tech_world.view;
 
-import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import tech_world.dao.Cliente;
 import tech_world.logica.AccessCliente;
 
 /**
  *
- * @author Lizardi Alarcon
+ * @author soporte
  */
 @ManagedBean(name = "mbcliente")
-@SessionScoped
+@RequestScoped
 public class HBCliente {
-    private List<Cliente> cliente;
+
+    private Cliente cliente = new Cliente();
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
+    public String verificarDatos() throws Exception{
+        AccessCliente AccessCliente = new AccessCliente();
+        Cliente cli;
+        String resultado = null;
+        
+        try{
+            cli = AccessCliente.verificarDatos(this.cliente);
+            if(cli !=null){
+                FacesContext.getCurrentInstance().getExternalContext()
+                        .getSessionMap().put("cliente", cli);
+                 resultado = "exito";
+            }else{
+                resultado = "error";
+            }
+        }catch(Exception e){
+            throw e;
+        }
+        return resultado;
+    }
     /**
-     * Creates a new instance of HBCliente
+     * Creates a new instance of HBcliente
      */
     public HBCliente() {
     }
-     public List<Cliente> getCliente() {
-        AccessCliente Helper = new AccessCliente();
-        cliente= Helper.getClientes();
-        return cliente;
+    
+    public boolean verificarSesion(){
+        boolean estado;
+        
+        if(FacesContext.getCurrentInstance().getExternalContext()
+                .getSessionMap().get("cliente") == null){
+            estado = false;
+        }else{
+            estado = true;
+        }
+        return estado;
+    }
+    
+    public String cerrarSesion(){
+        FacesContext.getCurrentInstance().getExternalContext()
+                .invalidateSession();
+        return "index?faces-redirect=true";
     }
     
 }
+
