@@ -8,9 +8,9 @@
         <title>Menu</title>
     </h:head> 
     <h:body>
-        <b:navBar brand="Brand" brandHref="#" fluid="true">
+        <b:navBar brand="TECH WORLD" brandHref="#" fluid="true">
   <b:navbarLinks>
-    <b:navLink value="Inicio" href="#"></b:navLink>
+    <b:navLink value="Inicio" href="catalogo.xhtml"></b:navLink>
     <b:navLink value="Productos" href="#"></b:navLink>
     <b:dropMenu value="Dropdown" iconAwesome="birthday-cake">
       <b:navLink value="Action" href="#"></b:navLink>
@@ -32,7 +32,7 @@
       <b:navLink value="One more separated link" href="#"></b:navLink>
     </b:dropMenu>
   </b:navbarLinks>
-  <form class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
+  <form class="navbar-form navbar-left" role="search">
   <div class="form-group">
      <input type="text" class="form-control" placeholder="Buscar Producto"/>
   </div>
@@ -40,11 +40,12 @@
   </form>
   <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
 <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
-  <b:navbarLinks pull="right" styleClass="hidden-xs">
+  <b:navbarLinks pull="right" >
+      <b:navLink value="Ubicaciones" href="#" iconAwesome="home" icon-size="lg"></b:navLink>
       <b:navLink value="Carrito" href="#" iconAwesome="fa-shopping-cart" icon-size="lg"></b:navLink>
     
     <b:dropMenu value="User" iconAwesome="user" icon-size="lg" >
-      <b:navLink value="Perfil" href="#" iconAwesome="user" icon-size="lg"></b:navLink>
+      <b:navLink value="Perfil" href="perfil.xhtml" iconAwesome="user" icon-size="lg"></b:navLink>
       <b:navLink value="Configuración" href="#" iconAwesome="cog" icon-size="lg"></b:navLink>
       <b:navLink></b:navLink>
       <b:navLink value="Cerrar Sesion" href="#" iconAwesome="sign-out"></b:navLink>

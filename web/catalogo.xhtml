@@ -12,14 +12,13 @@
   <h:body>        
         <ui:include src="menu.xhtml" />
     <h:form>           
-      <b:column span="2">
-        <b:panel look="primary" title="Categorias">
+      <b:column span="2" >
+        <b:panel  title="Categorias">
           <b:listLinks>
             <h:dataTable value="#{mbcategoria.categorias}" var="cli">            
                <h:column >
-                  <b:navLink value="#{cli.categoriaDescripcion}" ></b:navLink>
-                  <br></br>
-                 
+                   <b:navLink  > #{cli.categoriaDescripcion}</b:navLink>                   
+                  <br></br>                 
                 </h:column> 
             </h:dataTable>
           </b:listLinks>
