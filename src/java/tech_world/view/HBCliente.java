@@ -39,7 +39,7 @@ public class HBCliente {
             if(cli !=null){
                 FacesContext.getCurrentInstance().getExternalContext()
                         .getSessionMap().put("cliente", cli);
-                 resultado = "exito";
+                 return "exito.xhtml?faces-redirect=true";
             }else{
                 resultado = "error";
             }
@@ -61,6 +61,8 @@ public class HBCliente {
                 .getSessionMap().get("cliente") == null){
             estado = false;
         }else{
+            this.cliente = (Cliente)FacesContext.getCurrentInstance().getExternalContext()
+                .getSessionMap().get("cliente");
             estado = true;
         }
         return estado;
@@ -71,6 +73,5 @@ public class HBCliente {
                 .invalidateSession();
         return "index?faces-redirect=true";
     }
-    
 }
 
