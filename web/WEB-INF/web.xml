@@ -11,14 +11,14 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
-    </session-config>
+    </session-config> 
     <welcome-file-list>
-        <welcome-file>faces/catalogo.xhtml</welcome-file>
+        <welcome-file>menu.xhtml</welcome-file>  
     </welcome-file-list>
 </web-app>
