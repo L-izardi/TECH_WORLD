@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+     
+    <h:body >
+       
+        <ui:include src="menu.xhtml" />  
+        <h2 align="center"> 
+        <p style="color:#FF0000">BODEGA</p>
+        </h2>
+        
+        <h:form>
+            <h:panelGrid columns="3">
+                <pre>
+                <h:outputLabel for="txtNombre" value ="Nombre"/>
+                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" value=""/>
+                    <h:message for="txtNombre"/>
+                
+                <h:outputLabel for="txtDireccion" value ="Direccion"/>
+                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true" value=""/>
+                <h:message for="txtDireccion"/>
+                
+                <h:outputLabel for="txtTelefono" value ="Telefono"/>
+                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" value=""/>
+                <h:message for="txtTelefono"/>
+            
+            <h:outputLabel for="cmbPais" value ="Pais: "/>
+            <h:selectOneMenu id="cmbPais" label ="Pais" value ="">
+            <f:selectItem itemLabel="jajajaj" itemValue="jajajaj"/> 
+            <f:selectItem itemLabel="jejejej" itemValue="jejejej"/>  
+            <f:selectItem itemLabel="jijijij" itemValue="jijijij"/>  
+            </h:selectOneMenu>
+            <h:message for="cmbPais"/>
+                      
+                       <h:commandButton action="recibir" value="Enviar Datos"/>
+                      </pre> 
+                 
+            </h:panelGrid>
+        </h:form>
+       
+    </h:body>
+</html>
+
