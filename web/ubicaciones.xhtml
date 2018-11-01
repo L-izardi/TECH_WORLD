@@ -26,29 +26,21 @@
                   <br></br>                 
                 </h:column> 
                 -->
-                <h:column >     
+                <h:column class="col-3">     
                    
                     <b:panelGrid columns="1">
-                      
-                      
-                      <b:label text="Direccion"/>
-                      <b:badge value="#{cli.sucursalDireccion}"/>
-                      <b:label text="Sucursal Nombre" />
-                      <b:badge value="#{cli.sucursalNombre}" />
-                      
-                      
-                      <b:label text="Warning" severity="warning"/>
-                      <b:badge value="9" />
-                      <b:label text="Danger" severity="danger"/>
-                      <b:badge value="4" />
-
-                      <b:label text="Info" severity="info"/>
-                      <b:badge value="12" />
-                      <b:label text="Primary" severity="primary"/>
-                      <b:badge value="3"/>
-                     
+                      <h:outputLabel style='color:#f47920'  value="Sucursal #{cli.sucursalNombre} " ></h:outputLabel>
+                      <h:outputLabel value="Direccion"></h:outputLabel>
+                      <h:outputLabel value="#{cli.sucursalDireccion}"></h:outputLabel>
+                      <h:outputLabel value="#{cli.sucursalTelefono}"></h:outputLabel>
+                      <h:outputLabel value="    "></h:outputLabel>
                     </b:panelGrid>
-                     
+                   
+                </h:column>
+                <h:column class="col-3">
+                <b:panelGrid columns="1">
+                    <h:graphicImage value="#{cli.sucursalImagen}" style='width:250px; height:150px;'/>
+                    </b:panelGrid>
                 </h:column>
                
             </h:dataTable>
