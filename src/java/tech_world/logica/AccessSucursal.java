@@ -14,15 +14,15 @@ import tech_world.utils.HibernateUtil;
 
 /**
  *
- * @author MARIO
+ * @author Lizardi Alarcon
  */
-public class AccessSucursales {
+public class AccessSucursal {
     
     
-        Session session=null;
-    //Acceso sucursales
+    Session session=null;
+    //Acceso A categoria
 
-    public AccessSucursales() {
+    public AccessSucursal() {
         if(this.session==null){
             this.session=HibernateUtil
                     .getSessionFactory()
@@ -42,21 +42,4 @@ public class AccessSucursales {
        }
        return listSucursal;
     }
-    
-    
-     public List busCategoria(Sucursal sucursal){
-        List<Sucursal>listSucursal=null;
-       try{
-       Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Sucursal ");
-       listSucursal=(List<Sucursal>)q.list();
-       tx.commit();
-       }catch(Exception e){
-           e.printStackTrace();
-       } 
-       return listSucursal;
-    
-     }
 }
-    
-    
