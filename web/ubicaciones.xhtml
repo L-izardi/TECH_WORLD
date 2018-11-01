@@ -10,16 +10,50 @@
     <h:body>
         <ui:include src="menu.xhtml" />
     
-    <h:form>           
-      <b:column span="2" >
-        <b:panel  title="Categorias">
+    <h:form>   
+    <b:column span ="3"> </b:column>
+      <b:column span="6" >
+          <b:panel  title="Sucursales" collapsible="false">
           <b:listLinks> 
               <h:dataTable value="#{mbsucursal.sucursal}" var="cli">            
-               <h:column >
-                   <b:navLink  > #{cli.sucursalDireccion}</b:navLink>                   
+                 
+                <!--
+                  <h:column >
+                   
+                   <b:navLink value="Direccion: " > #{cli.sucursalDireccion}</b:navLink> 
+                   <b:navLink  > #{cli.sucursalNombre}</b:navLink> 
+                   <b:navLink  > #{cli.sucursalTelefono}</b:navLink> 
                   <br></br>                 
                 </h:column> 
+                -->
+                <h:column >     
+                   
+                    <b:panelGrid columns="1">
+                      
+                      
+                      <b:label text="Direccion"/>
+                      <b:badge value="#{cli.sucursalDireccion}"/>
+                      <b:label text="Sucursal Nombre" />
+                      <b:badge value="#{cli.sucursalNombre}" />
+                      
+                      
+                      <b:label text="Warning" severity="warning"/>
+                      <b:badge value="9" />
+                      <b:label text="Danger" severity="danger"/>
+                      <b:badge value="4" />
+
+                      <b:label text="Info" severity="info"/>
+                      <b:badge value="12" />
+                      <b:label text="Primary" severity="primary"/>
+                      <b:badge value="3"/>
+                     
+                    </b:panelGrid>
+                     
+                </h:column>
+               
             </h:dataTable>
+   
+           
           </b:listLinks>
         </b:panel>
       </b:column>
