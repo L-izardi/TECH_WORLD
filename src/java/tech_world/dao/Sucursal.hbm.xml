@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31/10/2018 06:32:03 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 31/10/2018 08:33:28 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="tech_world.dao.Sucursal" table="sucursal" catalog="tech_world" optimistic-lock="version">
         <id name="sucursalCod" type="java.lang.Integer">
@@ -19,6 +19,9 @@
         </property>
         <property name="sucursalTelefono" type="string">
             <column name="sucursal_telefono" length="45" />
+        </property>
+        <property name="sucursalImagen" type="string">
+            <column name="sucursal_imagen" length="500" />
         </property>
         <set name="sucursalBodegas" table="sucursal_bodega" inverse="true" lazy="true" fetch="select">
             <key>

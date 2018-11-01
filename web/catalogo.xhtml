@@ -17,13 +17,43 @@
           <b:listLinks> 
             <h:dataTable value="#{mbcategoria.categorias}" var="cli">            
                <h:column >
-                   <b:navLink  > #{cli.categoriaDescripcion}</b:navLink>                   
-                  <br></br>                 
+                   <b:navLink  > #{cli.categoriaDescripcion}</b:navLink>
                 </h:column> 
             </h:dataTable>
           </b:listLinks>
         </b:panel>
       </b:column>
+      <b:column span="10" >
+          <b:panel  title="Productos" collapsible="false"> 
+                  <b:container>
+            <b:row>
+                <div class='row container row_productos'>
+                    <div class='col-xs-12 col-md-4' style='margin: 0 auto; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: lightgray;'>
+        <div class='contenedor_producto' style='margin:0 auto; margin-top:20px; margin-bottom: 20px;' title='EXISTENCIAS&#10;Supermarket: 7&#10;Metronorte: 3&#10;Reforma: 1&#10;Montserrat: 1&#10;Santa Clara: 5&#10;Pradera Z.10: 1&#10;Express: 1&#10;Zona 4: 1&#10;Zona 1: 1&#10;V.H. Metro 15: 1&#10;Madero Roosevelt: 1&#10;San Cristobal: 1&#10;San Cristobal Blu: 1&#10;Atanasio: 1&#10;Metrosur: 1&#10;Campustec: 1&#10;Xela: 2&#10;Escuintla: 1&#10;Coban: 2&#10;Mazatenango: 1&#10;Jutiapa: 1&#10;San Lucas: 1&#10;Chiquimula: 1&#10;'><div class='area_imagen' style="background-image: url('images/productos/gran/WL-LOG-TRCM570.jpg'); background-repeat:no-repeat; background-size:contain;background-position: center center;">
+            <div class='zoom_info'>
+                <button class='btn_mas_info' name='precios_stock_detallado.aspx?codigo=WL-LOG-TRCM570'>
+                    <i class='icon-info'></i></button>
+                    <button class='btn_cotiza' name='WL-LOG-TRCM570'><i class='icon-cart'></i>
+                    </button>
+                </div>
+            </div>
+            <div class='descripcion'>
+                <div style='padding-top:10px;'>
+                    <a style='text-decoration:none; color:black;' href='precios_stock_detallado.aspx?codigo=WL-LOG-TRCM570'>MOUSE INALAMBRICO LOGITECH TRACKBALL M570 </a>
+                </div><div><a style='text-decoration:none; color:black;' href='precios_stock_detallado.aspx?codigo=WL-LOG-TRCM570'> Precio normal: <strong> Q469.00</strong></a></div><div><span style='color:#f47920'><b><i><a style='text-decoration:none; color:darkorange;' href='precios_stock_detallado.aspx?codigo=WL-LOG-TRCM570'>Beneficio Efectivo: Q450.00</a></i></b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+      
+            </b:row>
+        </b:container>
+          </b:panel>
+          
+      </b:column>
+        
+        
     </h:form>
   </h:body>
     
