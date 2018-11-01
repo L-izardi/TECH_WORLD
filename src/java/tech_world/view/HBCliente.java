@@ -7,6 +7,7 @@ package tech_world.view;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import tech_world.dao.Cliente;
 import tech_world.logica.AccessCliente;
@@ -59,6 +60,7 @@ public class HBCliente {
         
         if(FacesContext.getCurrentInstance().getExternalContext()
                 .getSessionMap().get("cliente") == null){
+            
             estado = false;
         }else{
             this.cliente = (Cliente)FacesContext.getCurrentInstance().getExternalContext()

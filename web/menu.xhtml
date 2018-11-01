@@ -46,12 +46,17 @@
       <b:navLink value="Carrito" href="#" iconAwesome="fa-shopping-cart" icon-size="lg"></b:navLink>
     
     <b:dropMenu value="#{mbcliente.cliente.clienteNick}" iconAwesome="user" icon-size="lg" >
+     
       <b:navLink value="Perfil" href="perfil.xhtml" iconAwesome="user" icon-size="lg"></b:navLink>
       <b:navLink value="Configuración" href="#" iconAwesome="cog" icon-size="lg"></b:navLink>
       <b:navLink></b:navLink>
-      <b:navLink value="Cerrar Sesion" href="index.xhtml" iconAwesome="sign-out" action="#{mbcliente.cerrarSesion()}"></b:navLink>
+     <h:form> 
+     <b:navCommandLink iconAwesome="sign-out" icon-size="lg"  value="Cerrar Sesion" action="#{mbcliente.cerrarSesion()}"></b:navCommandLink>           
+    </h:form>
     </b:dropMenu>
+        
   </b:navbarLinks>
 </b:navBar>
+    
     </h:body>
    </html> 
