@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Bodega Admin</title>
     </h:head>
      
     <h:body >
@@ -44,8 +44,61 @@
                                 
             </h:panelGrid>
             </b:column>
-        </h:form>
-       
+        
+       <b:column span="6" >
+           <!--<b:dataTable value="#{mbbodega.bodegas}"  var="bod"
+                           page-length="5"
+                           page-length-menu="5,10,20">
+              
+                <b:dataTableColumn  value="#{bod.bodegaNombre}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Nombre</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn  value="#{bod.bodegaDireccion}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Direccion</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+               <b:dataTableColumn  value="#{bod.bodegaTelefono}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Telefono</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+               <b:dataTableColumn value="#{bod.pais.paisNombre}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Pais</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+               
+               <b:dataTableColumn>
+                   <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Editar</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                    
+               <b:dataTableColumn >
+               <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Eliminar</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+             </b:dataTable>-->
+          <h:dataTable value="#{mbbodega.bodegas}"  var="bod">            
+               <h:column >
+                   <b:navLink  > #{bod.bodegaNombre}</b:navLink>
+                   <b:navLink  > #{bod.bodegaDireccion}</b:navLink>
+                   <b:navLink  > #{bod.bodegaTelefono}</b:navLink>
+                   <b:navLink  > #{bod.pais.paisNombre}</b:navLink>
+                </h:column> 
+            </h:dataTable>
+      </b:column>
+            </h:form>
     </h:body>
 </html>
 

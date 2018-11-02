@@ -28,10 +28,11 @@ public class AccessBodega {
     }
     public List getBodegas(){
        
+     
        List<Bodega>listBodegas=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Bodega");
+       Query q=session.createQuery("bodegaNombre,bodegaDireccion, paisNombre from Bodega,Pais where bodega_pais_cod=pais_cod");
        listBodegas=(List<Bodega>)q.list();
        tx.commit();
        }catch(Exception e){

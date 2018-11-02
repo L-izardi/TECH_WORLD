@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 import tech_world.dao.Pais;
 import tech_world.logica.AccessPais;
@@ -19,7 +18,7 @@ import tech_world.logica.AccessPais;
  * @author Lizardi Alarcon
  */
 @ManagedBean(name = "mbpais")
-@ViewScoped
+@SessionScoped
 public class HBPais {
      
     private List<SelectItem> listpais;
