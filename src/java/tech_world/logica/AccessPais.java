@@ -26,13 +26,12 @@ public class AccessPais {
                     .getCurrentSession();
         }
     }
-    public List getPais(){
-       
+    public List getPais(){       
        List<Pais>listPais=null;
        try{
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Pais");
-       listPais=(List<Pais>)q.list();
+       listPais=q.list();
        tx.commit();
        }catch(Exception e){
            e.printStackTrace();
