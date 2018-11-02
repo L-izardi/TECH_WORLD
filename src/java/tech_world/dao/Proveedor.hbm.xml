@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31/10/2018 08:33:28 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 1/11/2018 06:26:44 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="tech_world.dao.Proveedor" table="proveedor" catalog="tech_world" optimistic-lock="version">
         <id name="proveedorCod" type="java.lang.Integer">
@@ -12,22 +12,10 @@
             <column name="proveedor_pais_cod" not-null="true" />
         </many-to-one>
         <property name="proveedorNombre" type="string">
-            <column name="proveedor_nombre" length="45" />
+            <column name="proveedor_nombre" length="200" />
         </property>
-        <property name="proveedorTelefono" type="java.lang.Integer">
-            <column name="proveedor_telefono" />
+        <property name="proveedorTelefono" type="string">
+            <column name="proveedor_telefono" length="45" />
         </property>
-        <set name="productoProveedors" table="producto_proveedor" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="pp_proveedor_cod" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.ProductoProveedor" />
-        </set>
-        <set name="ordenCompras" table="orden_compra" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="oc_proveedor_cod" not-null="true" />
-            </key>
-            <one-to-many class="tech_world.dao.OrdenCompra" />
-        </set>
     </class>
 </hibernate-mapping>
