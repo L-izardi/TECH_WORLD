@@ -7,9 +7,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       >
     <h:head>
-        <title>Catalogo</title>
+        <title>Inicio</title>
     </h:head>
-  <h:body>        
+  <h:body rendered="#{mbcliente.verificarSesion()}">        
         <ui:include src="menu.xhtml" /> 
     <h:form>           
       <b:column span="2" >

@@ -40,7 +40,7 @@ public class HBCliente {
             if(cli !=null){
                 FacesContext.getCurrentInstance().getExternalContext()
                         .getSessionMap().put("cliente", cli);
-                 return "exito.xhtml?faces-redirect=true";
+                 return "inicio.xhtml?faces-redirect=true";
             }else{
                 resultado = "error";
             }
