@@ -77,6 +77,6 @@ public class HBUsuario {
     public String cerrarSesion(){
         FacesContext.getCurrentInstance().getExternalContext()
                 .invalidateSession();
-        return "menu.xhtml?faces-redirect=true";
+        return "login.xhtml?faces-redirect=true";
     }
 }

@@ -38,7 +38,9 @@
       <b:navLink value="Perfil" href="#" iconAwesome="user" icon-size="lg"></b:navLink>
       <b:navLink value="Configuración" href="#" iconAwesome="cog" icon-size="lg"></b:navLink>
       <b:navLink></b:navLink>
-      <b:navLink value="Cerrar Sesion" href="#" iconAwesome="sign-out"></b:navLink>
+      <h:form> 
+         <b:navCommandLink style=" margin-left:10px;font-size:10; font-family:verdana; color:#000; text-decoration:none" iconAwesome="sign-out" icon-size="lg"  value="Cerrar Sesion" action="#{mbusuario.cerrarSesion()}"></b:navCommandLink>           
+    </h:form>
     </b:dropMenu>
   </b:navbarLinks>
 </b:navBar>
