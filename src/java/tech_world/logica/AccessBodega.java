@@ -48,5 +48,16 @@ public class AccessBodega {
        }catch(Exception e){
            e.printStackTrace();
        }
-    }    
+    } 
+    
+    public void insertarBodega(Bodega nuevaBodega){
+        try{
+        Transaction tx= session.beginTransaction();
+        
+        session.save(nuevaBodega);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
 }

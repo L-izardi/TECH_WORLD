@@ -12,7 +12,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
+import tech_world.dao.Categoria;
 import tech_world.dao.Pais;
+import tech_world.logica.AccessCategoria;
 import tech_world.logica.AccessPais;
 
 /**
@@ -24,6 +26,7 @@ import tech_world.logica.AccessPais;
 public class HBPais {
      
     private List<SelectItem> listpais;
+    private List<Pais> listP;
     private Pais pais;
 
     public Pais getPais() {
@@ -36,6 +39,13 @@ public class HBPais {
     public HBPais() {
        pais = new Pais();
     }
+    
+    public List<Pais> getListPais() {
+        AccessPais pais = new AccessPais();
+        listP= pais.getPais();
+        return listP;
+    }
+    
     public List<SelectItem> getListPaises() {        
         this.listpais= new ArrayList<SelectItem>();
         AccessPais pais = new AccessPais();

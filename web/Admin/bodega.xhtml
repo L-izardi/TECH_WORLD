@@ -16,31 +16,31 @@
         <p style="color:#FF0000">BODEGA</p>
         </h2>
         
-        <h:form>
+        <h:form id="formBodega">
             <br></br>
             <b:column span="1"> </b:column>
             <b:column span="4" >
                <h:outputLabel for="" value ="Nueva Bodega"/>  
             <h:panelGrid columns="3">               
                 <h:outputLabel for="txtNombre" value ="Nombre"/>
-                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" value=""/>
+                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" />
                  <h:message for="txtNombre"/>
                 
                 <h:outputLabel for="txtDireccion" value ="Direccion"/>
-                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true" value=""/>
+                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true" />
                 <h:message for="txtDireccion"/>
                 <h:outputLabel for="txtTelefono" value ="Telefono"/>
-                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" value=""/>
+                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" />
                 <h:message for="txtTelefono"/>
             <h:outputLabel for="cmbPais" value ="Pais: "/>
-            <h:selectOneMenu id="pais" value="#{mbpais.pais.paisCod}">
-                <f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+            <h:selectOneMenu id="idpais" value="#{mbpais.pais.paisCod}">
+                <f:selectItem itemLabel="--Seleccione--"/>
                 <f:selectItems value="#{mbpais.listPaises}"/>
-                <f:ajax execute="pais" render="pSeleccionado"/>
+                <!--<f:ajax execute="pais" render="pSeleccionado"/>-->
             </h:selectOneMenu>
             <h:message for="cmbPais"/>
                       
-                       <h:commandButton action="recibir" value="Enviar Datos"/>
+                       <h:commandButton action="#{mbbodega.nuevaBodega()}" value="Guardar Nueva Bodega"/>
                                 
             </h:panelGrid>
             </b:column>
@@ -94,7 +94,7 @@
              </b:dataTable>
           
       </b:column>
-            </h:form>
+           </h:form>
     </h:body>
 </html>
 
