@@ -48,13 +48,64 @@
             <h:message for="imagen"/>
                       
             <h:commandButton action="#{mbsucursal.nuevaSucursal()}" value="Enviar Datos"/>
-                       
-                       
- 
+                
             </h:panelGrid>
                 </b:column>
-        </h:form>
-       
+        <b:column span="6" >
+            <b:dataTable value="#{mbsucursal.sucursales}"  var="suc" class="editableBodega" 
+                           page-length="5"
+                           page-length-menu="5,10,20">
+              
+                <b:dataTableColumn  value="#{suc.sucursalNombre}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Nombre</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn  value="#{suc.sucursalDireccion}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Direccion</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+               <b:dataTableColumn  value="#{suc.sucursalTelefono}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Telefono</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn  style="width:200px; height:160px; background-image: url('../#{suc.sucursalImagen}'); background-repeat:no-repeat; background-size:contain;background-position: center center;" >
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Imagen</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn >
+               <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Editar</li>
+                       </ul>
+                    </f:facet>
+                    <b:commandButton value="edit" icon="edit" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+               
+               <b:dataTableColumn >
+               <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Elimnar</li>
+                       </ul>
+                    </f:facet>
+                    <b:commandButton value="delete" icon="trash" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+                    
+               
+             </b:dataTable>
+          
+      </b:column>
+           </h:form>
     </h:body>
 </html>
-

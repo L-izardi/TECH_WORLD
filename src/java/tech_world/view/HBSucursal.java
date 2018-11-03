@@ -26,6 +26,7 @@ public class HBSucursal {
     
     
     private List<SelectItem> listsucursal;
+    private List<Sucursal> sucursales;
     private Sucursal sucursal;
    
     public Sucursal getSucursal() {
@@ -55,6 +56,11 @@ public class HBSucursal {
         return listsucursal;
         
      }
+     public List<Sucursal> getSucursales() {
+        AccessSucursal sucursal = new AccessSucursal();
+        sucursales= sucursal.getSucursal();
+        return sucursales;
+    }
     
     public void nuevaSucursal (){
      HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
