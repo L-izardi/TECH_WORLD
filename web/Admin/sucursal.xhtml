@@ -24,32 +24,32 @@
             <h:panelGrid columns="3">
                 
                 <h:outputLabel for="txtNombre" value ="Nombre"/>
-                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" value=""/>
+                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" />
                     <h:message for="txtNombre"/>
                 
                 <h:outputLabel for="txtDireccion" value ="Direccion"/>
-                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true" value=""/>
+                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true"/>
                 <h:message for="txtDireccion"/>
                 
                 <h:outputLabel for="txtTelefono" value ="Telefono"/>
-                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" value=""/>
+                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" />
                 <h:message for="txtTelefono"/>
                 
                 
             
             <h:outputLabel for="cmbPais" value ="Pais: "/>
-            <h:selectOneMenu id="pais" value="#{mbpais.pais.paisCod}">
-                <f:selectItem itemLabel="--Seleccione--" itemValue=""/>
+            <h:selectOneMenu id="idpais" value="#{mbpais.pais.paisCod}">
+                <f:selectItem itemLabel="--Seleccione--" />
                 <f:selectItems value="#{mbpais.listPaises}"/>
-                <f:ajax execute="pais" render="pSeleccionado"/>
             </h:selectOneMenu>
             <h:message for="cmbPais"/>
+            <h:outputLabel value="Imagen"/>
+            <input type="file" id="imagen" name="imagen"></input>
+            <h:message for="imagen"/>
                       
-                       <h:commandButton action="recibir" value="Enviar Datos"/>
+            <h:commandButton action="#{mbsucursal.nuevaSucursal()}" value="Enviar Datos"/>
                        
-                      <!-- <label>Imagen</label>
-                       <input type="file"id="imagen"name="imagen"></input>-->
-                
+                       
  
             </h:panelGrid>
                 </b:column>
