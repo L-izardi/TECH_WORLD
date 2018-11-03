@@ -58,11 +58,20 @@ public class HBSucursal {
     
     public void nuevaSucursal (){
      HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-     String sucursalNombre = request.getParameter("formSucursal:sucursalNombre");
+     String sucursalNombre = request.getParameter("formSucursal:txtNombre");
+     String sucursalDireccion = request.getParameter("formSucursal:txtDireccion");
+     String sucursalTelefono = request.getParameter("formSucursal:txtTelefono");
+     int paisCod = Integer.parseInt(request.getParameter("formSucursal:idpais"));
      AccessSucursal accessSucursal = new AccessSucursal();
      Sucursal s= new Sucursal();
      s.setSucursalCod(null);
      s.setSucursalNombre(sucursalNombre);
+     s.setSucursalDireccion(sucursalDireccion);
+     s.setSucursalTelefono(sucursalTelefono);
+     Pais pais= new Pais();
+     pais.setPaisCod(paisCod);
+     s.setPais(pais);
+     
      accessSucursal.insertar(s);
     }
     
