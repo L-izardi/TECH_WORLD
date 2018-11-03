@@ -9,11 +9,13 @@
     </h:head> 
     <h:body rendered="#{mbcliente.verificarSesion()}">
         
-      <b:navBar brand="TECH WORLD" brandHref="#" fluid="true">
+      <b:navBar brand="TECH WORLD" brandHref="inicio.xhtml" fluid="true">
   <b:navbarLinks>
     <b:navLink value="Inicio" href="inicio.xhtml"></b:navLink>
-    <b:navLink value="Productos" href="#"></b:navLink> 
-    <b:dropMenu value="Dropdown" iconAwesome="birthday-cake">
+    <b:navLink value="Productos" href="inicio.xhtml"></b:navLink> 
+    
+    <!--
+    <b:dropMenu value="Dropddddddown" iconAwesome="birthday-cake">
       <b:navLink value="Action" href="#"></b:navLink>
       <b:navLink value="Another action" href="#"></b:navLink>
       <b:navLink value="Something else here" href="#"></b:navLink>
@@ -30,17 +32,21 @@
         </b:dropMenu>
  
       </b:dropMenu>
-      <b:navLink value="One more separated link" href="#"></b:navLink>
-    </b:dropMenu>
+      <b:navLink value="One morffffffffffffe separated link" href="#"></b:navLink>
+    </b:dropMenu> -->
   </b:navbarLinks>
-  <form class="navbar-form navbar-left" role="search">
+  
+          <!-- 
+          <form class="navbar-form navbar-left" role="search">
   <div class="form-group">
-      <input type="text" class="form-control" placeholder="Buscar Producto"></input>
+     <input type="text" class="form-control" placeholder="Bu Producto"></input>     
   </div>
   <button type="submit" class="btn btn-default">Buscar</button>
   </form>
-  <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
-<b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+
+  
+  <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
   <b:navbarLinks pull="right" >
       <b:navLink value="Ubicaciones" href="ubicaciones.xhtml" iconAwesome="home" icon-size="lg"></b:navLink>
       <b:navLink value="Carrito" href="#" iconAwesome="fa-shopping-cart" icon-size="lg"></b:navLink>
