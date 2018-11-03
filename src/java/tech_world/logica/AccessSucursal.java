@@ -42,4 +42,15 @@ public class AccessSucursal {
        }
        return listSucursal;
     }
+
+public void insertar(Sucursal nuevaSucursal){
+        try{
+        Transaction tx= session.beginTransaction();
+        
+        session.save(nuevaSucursal);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
 }
