@@ -63,7 +63,7 @@ public class HBUsuario {
         boolean estado;
         
         if(FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().get("cliente") == null){
+                .getSessionMap().get("usuario") == null){
             
             estado = false;
         }else{
