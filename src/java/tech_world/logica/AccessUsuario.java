@@ -23,7 +23,7 @@ public class AccessUsuario {
     Usuario usu = null; 
         try{
             session = HibernateUtil.getSessionFactory().openSession();
-            String hql ="FROM usuario WHERE usuario_nick = '" + usuario.getUsuarioNick()
+            String hql ="FROM Usuario WHERE usuario_nick = '" + usuario.getUsuarioNick()
                         +"' and usuario_pass = '" + usuario.getUsuarioPass()+ "'";
            
             Query query = session.createQuery(hql);
