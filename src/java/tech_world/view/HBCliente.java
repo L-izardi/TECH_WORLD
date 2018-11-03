@@ -9,8 +9,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Cliente;
+import tech_world.dao.Pais;
 import tech_world.logica.AccessCliente;
+import tech_world.logica.AccessPais;
 
 /**
  *
@@ -74,6 +77,29 @@ public class HBCliente {
         FacesContext.getCurrentInstance().getExternalContext()
                 .invalidateSession();
         return "index?faces-redirect=true";
+    }
+    
+    public void nuevoCliente(){
+       HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+       
+       String ClienteNombre = request.getParameter("formCliente:nombre");
+       String ClienteApellido = request.getParameter("formCliente:apellido");
+       long ClienteDPI = Long.valueOf(request.getParameter("formCliente:DPI"));
+       String ClienteUsuario = request.getParameter("formCliente:usuario");
+       String ClienteCorreo = request.getParameter("formCliente:correo");
+       String ClientePassword = request.getParameter("formCliente:password");
+       
+       AccessCliente accessCliente = new AccessCliente();
+       Cliente cli = new Cliente();
+       cli.setClienteCod(null);
+       cli.setClienteNombre(ClienteNombre);
+       cli.setClienteApellido(ClienteApellido);
+       cli.setClienteDpi(ClienteDPI);
+       cli.setClienteNick(ClienteUsuario);
+       cli.setClienteEmail(ClienteCorreo);
+       cli.setClientePass(ClientePassword);
+       accessCliente.insertarCliente(cli);
+                
     }
 }
 

@@ -8,6 +8,7 @@ package tech_world.logica;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import tech_world.dao.Cliente;
 import tech_world.utils.HibernateUtil;
 
@@ -37,4 +38,15 @@ public class AccessCliente {
             }
         return cli;
     }
+    
+        public void insertarCliente(Cliente nuevoCliente){
+            try{
+            Transaction tx= session.beginTransaction();
+
+            session.save(nuevoCliente);
+            tx.commit();
+            }catch(Exception e){
+               e.printStackTrace();
+           }
+       }
 }

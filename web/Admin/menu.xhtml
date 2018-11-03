@@ -7,8 +7,8 @@
     <h:head>
         <title>Menu</title>
     </h:head> 
-    <h:body>
-        <b:navBar brand="TECH WORLD" brandHref="#" fluid="true">
+<h:body rendered="#{mbcliente.verificarSesion()}">        
+  <b:navBar brand="TECH WORLD" brandHref="#" fluid="true">
   <b:navbarLinks>
     <b:navLink value="Inicio" href="#"></b:navLink>
     <b:dropMenu value="Producto">
