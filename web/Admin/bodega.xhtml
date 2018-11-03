@@ -46,7 +46,7 @@
             </b:column>
         
        <b:column span="6" >
-           <!--<b:dataTable value="#{mbbodega.bodegas}"  var="bod"
+           <b:dataTable value="#{mbbodega.bodegas}"  var="bod" class="editableBodega" 
                            page-length="5"
                            page-length-menu="5,10,20">
               
@@ -68,35 +68,31 @@
                           <li>Telefono</li>
                        </ul>
                     </f:facet></b:dataTableColumn>
-               <b:dataTableColumn value="#{bod.pais.paisNombre}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Pais</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-               
-               <b:dataTableColumn>
-                   <f:facet name="header">
+                <b:dataTableColumn >
+               <f:facet name="header">
                        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
                           <li>Editar</li>
                        </ul>
-                    </f:facet></b:dataTableColumn>
-                    
+                    </f:facet>
+                    <b:commandButton value="edit" icon="edit" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+               
                <b:dataTableColumn >
                <f:facet name="header">
                        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Eliminar</li>
+                          <li>Elimnar</li>
                        </ul>
-                    </f:facet></b:dataTableColumn>
-             </b:dataTable>-->
-          <h:dataTable value="#{mbbodega.bodegas}"  var="bod">            
-               <h:column >
-                   <b:navLink  > #{bod.bodegaNombre}</b:navLink>
-                   <b:navLink  > #{bod.bodegaDireccion}</b:navLink>
-                   <b:navLink  > #{bod.bodegaTelefono}</b:navLink>
-                   <b:navLink  > #{bod.pais.paisNombre}</b:navLink>
-                </h:column> 
-            </h:dataTable>
+                    </f:facet>
+                    <b:commandButton value="delete" icon="trash" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+                    
+               
+             </b:dataTable>
+          
       </b:column>
             </h:form>
     </h:body>

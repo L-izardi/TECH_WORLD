@@ -41,4 +41,18 @@ public class AccessProducto {
        }
        return listProductos;
     }
+    public List selectCategoria(Producto producto){
+        List<Producto>listProductos=null;
+        try{
+        Transaction tx= session.beginTransaction();
+        String hql="FROM Producto WHERE producto_categoria_cod = '"+ producto.getCategoria()+"'";
+        Query query = session.createQuery(hql);
+        listProductos=(List<Producto>)query.list();
+        tx.commit();
+        
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+        return listProductos;
+    }
 }

@@ -14,17 +14,15 @@
         <h2 align="center"> 
         <p style="color:#FF0000">PAIS</p>
         </h2>
-        <h:form>
+        <h:form id="formPais">
             <h:panelGrid columns="3">
                 <pre>
-                <h:outputLabel for="Categoria" value ="Categoria"/>
-                 <h:inputText id="txtCategoria" label="Ingrese Categoria" required="true" value=""/>
-                    <h:message for="txtCategoria"/>
-                
-                
-                      
-                       <h:commandButton action="recibir" value="Enviar Datos"/>
-                      </pre> 
+                <h:outputLabel for="Categoria" value ="Pais"/>
+                 <h:inputText id="paisNombre" label="Ingrese Nuevo Pais"  required="true"  />
+                    <h:message for="newPaises"/>
+                    <h:commandButton  action="#{mbpais.nuevoPais()}" value="Enviar Datos"/>
+                    
+                </pre> 
                  
             </h:panelGrid>
         </h:form>

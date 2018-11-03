@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Pais;
 import tech_world.logica.AccessPais;
 
@@ -47,4 +49,15 @@ public class HBPais {
         
         return listpais;
     }
+    public void nuevoPais(){
+       HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+       String paisNombre = request.getParameter("formPais:paisNombre");
+       AccessPais accessPais= new AccessPais();
+       Pais p= new Pais();
+       p.setPaisCod(null);
+       p.setPaisNombre(paisNombre);
+       accessPais.insertar(p);
+                
+    }
+       
 }

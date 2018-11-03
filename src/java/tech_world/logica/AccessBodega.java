@@ -32,7 +32,7 @@ public class AccessBodega {
        List<Bodega>listBodegas=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("bodegaNombre,bodegaDireccion, paisNombre from Bodega,Pais where bodega_pais_cod=pais_cod");
+       Query q=session.createQuery("from Bodega");
        listBodegas=(List<Bodega>)q.list();
        tx.commit();
        }catch(Exception e){
@@ -40,5 +40,13 @@ public class AccessBodega {
        }
        return listBodegas;
     }
-    
+    public void eliminarBodega(){
+        try{
+       Transaction tx= session.beginTransaction();
+       Query q=session.createQuery("from Bodega");
+       tx.commit();
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+    }    
 }

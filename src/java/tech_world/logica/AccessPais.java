@@ -38,4 +38,15 @@ public class AccessPais {
        }
        return listPais;
     }
+    
+    public void insertar(Pais nuevoPais){
+        try{
+        Transaction tx= session.beginTransaction();
+        
+        session.save(nuevoPais);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
 }

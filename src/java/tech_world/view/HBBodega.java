@@ -35,9 +35,12 @@ public class HBBodega {
         this.bodega = bodega;
     }
     public List<Bodega> getBodegas() {
-        AccessBodega bdProducto = new AccessBodega();
-        Listbodega= bdProducto.getBodegas();
+        AccessBodega bdBodega = new AccessBodega();
+        Listbodega= bdBodega.getBodegas();
         return Listbodega;
     }
-    
+    public void deleteBodega(){
+        AccessBodega bdBodega = new AccessBodega();
+        
+    }
 }
