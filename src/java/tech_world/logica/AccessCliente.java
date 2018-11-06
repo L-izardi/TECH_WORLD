@@ -20,6 +20,14 @@ public class AccessCliente {
     
     private Session session = null;
     
+    public AccessCliente(){
+        if(session==null){
+            this.session=HibernateUtil
+                    .getSessionFactory()
+                    .getCurrentSession();
+        }
+    }
+    
     public Cliente verificarDatos(Cliente cliente) throws Exception{
     Cliente cli = null; 
         try{
