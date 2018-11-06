@@ -35,10 +35,7 @@ public class HBSucursal {
 
     public void setSucursal(Sucursal sucursal) {
         this.sucursal = sucursal;
-    }
-    
-    
-    
+    }   
     
     public HBSucursal() {
         sucursal = new Sucursal ();

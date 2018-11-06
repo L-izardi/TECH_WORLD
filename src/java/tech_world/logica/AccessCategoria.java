@@ -54,4 +54,15 @@ public class AccessCategoria {
        } 
        return listCategoria;
     } 
+
+    public void insertarCategoria(Categoria nuevaCategoria) {
+        try{
+        Transaction tx= session.beginTransaction();
+        
+        session.save(nuevaCategoria);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
 }

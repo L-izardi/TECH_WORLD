@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Productos</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menu.xhtml" />  
+        <h2 align="center"> 
+        <p style="color:#FF0000">PRODUCTOS</p>
+        </h2>
+        
+        <h:form id="formProductos">
+            <br></br>
+            <b:column span="1"> </b:column>
+            <b:column span="4" >
+               <h:outputLabel for="" value ="Nuevo Producto"/>  
+            <h:panelGrid columns="3">               
+                <h:outputLabel for="txtNombre" value ="Nombre"/>
+                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" />
+                 <h:message for="txtNombre"/> 
+                <h:outputLabel for="txtNombre" value ="Categoria"/>
+                <h:selectOneMenu id="idCategoria" value="#{mbcategoria.categoria.categoriaCod}">
+                <f:selectItem itemLabel="--Seleccione--"/>
+                <f:selectItems value="#{mbcategoria.listCategoria}"/>
+                </h:selectOneMenu>
+                <h:message for="cmbCategoria"/>
+                <h:outputLabel for="txtNombre" value ="Marca"/>
+                <h:selectOneMenu id="idMarca" value="#{mbmarca.marca.marcaCod}">
+                <f:selectItem itemLabel="--Seleccione--"/>
+                <f:selectItems value="#{mbmarca.listMarca}"/>
+                </h:selectOneMenu>
+                <h:message for="cmbMarca"/>
+                <h:outputLabel for="txtGarantia" value ="Garantia"/>
+                <h:inputText id="txtGarantia" label="Ingrese la garantia del producto" required="true" />
+                <h:message for="txtGarantia"/>                
+                
+                <h:commandButton action="#{mbbodega.nuevaBodega()}" value="Guardar Nuevo Producto"/>
+                                
+            </h:panelGrid>
+            </b:column>
+        <!--
+       <b:column span="6" >
+           <b:dataTable value="#{mbbodega.bodegas}"  var="bod" class="editableBodega" 
+                           page-length="5"
+                           page-length-menu="5,10,20">
+              
+                <b:dataTableColumn  value="#{bod.bodegaNombre}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Nombre</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn  value="#{bod.bodegaDireccion}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Direccion</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+               <b:dataTableColumn  value="#{bod.bodegaTelefono}">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Telefono</li>
+                       </ul>
+                    </f:facet></b:dataTableColumn>
+                <b:dataTableColumn >
+               <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Editar</li>
+                       </ul>
+                    </f:facet>
+                    <b:commandButton value="edit" icon="edit" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+               
+               <b:dataTableColumn >
+               <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Elimnar</li>
+                       </ul>
+                    </f:facet>
+                    <b:commandButton value="delete" icon="trash" ajax="true" update="@(.editableBodega)"
+                       onclick="ajax:car.edit()" >
+                    </b:commandButton>
+               </b:dataTableColumn>
+                    
+               
+             </b:dataTable>
+          
+      </b:column>
+        -->   
+        </h:form>
+    </h:body>
+
+</html>

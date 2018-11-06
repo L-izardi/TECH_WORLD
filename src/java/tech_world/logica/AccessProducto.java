@@ -55,4 +55,14 @@ public class AccessProducto {
        }
         return listProductos;
     }
+     public void insertarProducto(Producto producto){
+        try{
+        Transaction tx= session.beginTransaction();
+        
+        session.save(producto);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+    }
 }

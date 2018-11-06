@@ -7,13 +7,10 @@ package tech_world.view;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Cliente;
-import tech_world.dao.Pais;
 import tech_world.logica.AccessCliente;
-import tech_world.logica.AccessPais;
 
 /**
  *

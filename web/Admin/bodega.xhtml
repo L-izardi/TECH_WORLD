@@ -2,99 +2,67 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Bodega Admin</title>
+        <title>Bodega</title>
     </h:head>
-     
     <h:body rendered="#{mbusuario.verificarSesion()}">
-       
         <ui:include src="menu.xhtml" />  
-        <h2 align="center"> 
-        <p style="color:#FF0000">BODEGA</p>
-        </h2>
-        
-        <h:form id="formBodega">
-            <br></br>
-            <b:column span="1"> </b:column>
-            <b:column span="4" >
-               <h:outputLabel for="" value ="Nueva Bodega"/>  
-            <h:panelGrid columns="3">               
-                <h:outputLabel for="txtNombre" value ="Nombre"/>
-                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" />
-                 <h:message for="txtNombre"/>
-                
-                <h:outputLabel for="txtDireccion" value ="Direccion"/>
-                <h:inputText id="txtDireccion" label="Ingrese Direccion" required="true" />
-                <h:message for="txtDireccion"/>
-                <h:outputLabel for="txtTelefono" value ="Telefono"/>
-                <h:inputText id="txtTelefono" label="Ingrese Telefono" required="true" />
-                <h:message for="txtTelefono"/>
-            <h:outputLabel for="cmbPais" value ="Pais: "/>
-            <h:selectOneMenu id="idpais" value="#{mbpais.pais.paisCod}">
-                <f:selectItem itemLabel="--Seleccione--"/>
-                <f:selectItems value="#{mbpais.listPaises}"/>
-                <!--<f:ajax execute="pais" render="pSeleccionado"/>-->
-            </h:selectOneMenu>
-            <h:message for="cmbPais"/>
-                      
-                       <h:commandButton action="#{mbbodega.nuevaBodega()}" value="Guardar Nueva Bodega"/>
-                                
-            </h:panelGrid>
-            </b:column>
-        
-       <b:column span="6" >
-           <b:dataTable value="#{mbbodega.bodegas}"  var="bod" class="editableBodega" 
-                           page-length="5"
-                           page-length-menu="5,10,20">
-              
-                <b:dataTableColumn  value="#{bod.bodegaNombre}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Nombre</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-                <b:dataTableColumn  value="#{bod.bodegaDireccion}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Direccion</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-               <b:dataTableColumn  value="#{bod.bodegaTelefono}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Telefono</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-                <b:dataTableColumn >
-               <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Editar</li>
-                       </ul>
-                    </f:facet>
-                    <b:commandButton value="edit" icon="edit" ajax="true" update="@(.editableBodega)"
-                       onclick="ajax:car.edit()" >
-                    </b:commandButton>
-               </b:dataTableColumn>
-               
-               <b:dataTableColumn >
-               <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Elimnar</li>
-                       </ul>
-                    </f:facet>
-                    <b:commandButton value="delete" icon="trash" ajax="true" update="@(.editableBodega)"
-                       onclick="ajax:car.edit()" >
-                    </b:commandButton>
-               </b:dataTableColumn>
-                    
-               
-             </b:dataTable>
-          
-      </b:column>
-           </h:form>
+        <div class="container">
+			<h1>Bodegas</h1>
+			<div class="row">
+                            <div class="col-sm-4">
+                                <h:form id="formBodega">
+                                    <label>Nombre de Bodega</label>
+                                    <h:inputText class="form-control input-sm" id="txtNombre" />
+                                    <label>Direccion</label>
+                                    <h:inputText  class="form-control input-sm" id="txtDireccion" />
+                                    <label>Telefono</label>
+                                    <h:inputText  class="form-control input-sm" id="txtTelefono" />
+                                    <label>Pais</label>
+                                    <h:selectOneMenu class="form-control input-sm" id="idpais" value="#{mbpais.pais.paisCod}">
+                                       <f:selectItem itemLabel="--Seleccione Pais--"/>
+                                       <f:selectItems value="#{mbpais.listPaises}"/>
+                                    </h:selectOneMenu>
+                                    <br></br>
+                                    <h:commandButton action="#{mbbodega.nuevaBodega()}" id="btnAgregarProducto" class="btn btn-primary" value="Agregar"/>           
+						
+                                </h:form>
+                            </div>
+                        <div class="col-sm-1"></div>
+				<div class="col-sm-6">
+                                    <div id="tablaBodega">
+                                        <b:dataTable value="#{mbbodega.bodegas}"  var="bod">
+                                          <b:dataTableColumn  value="#{bod.bodegaNombre}">
+                                            <f:facet name="header">
+                                                <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                   <li>Nombre</li>
+                                                </ul>
+                                             </f:facet></b:dataTableColumn>
+                                         <b:dataTableColumn  value="#{bod.bodegaDireccion}">
+                                             <f:facet name="header">
+                                                <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                   <li>Direccion</li>
+                                                </ul>
+                                             </f:facet></b:dataTableColumn>
+                                        <b:dataTableColumn  value="#{bod.bodegaTelefono}">
+                                             <f:facet name="header">
+                                                <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                   <li>Telefono</li>
+                                                </ul>
+                                             </f:facet></b:dataTableColumn>
+                                        <b:dataTableColumn  value="#{bod.pais.paisCod}">
+                                             <f:facet name="header">
+                                                <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                   <li>Pais</li>
+                                                </ul>
+                                             </f:facet></b:dataTableColumn>
+                                        </b:dataTable>
+                                    </div>
+				</div>
+                        </div>
+        </div>
     </h:body>
 </html>
-

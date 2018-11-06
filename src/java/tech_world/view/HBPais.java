@@ -12,9 +12,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
-import tech_world.dao.Categoria;
 import tech_world.dao.Pais;
-import tech_world.logica.AccessCategoria;
 import tech_world.logica.AccessPais;
 
 /**

@@ -5,9 +5,13 @@
  */
 package tech_world.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Categoria;
 import tech_world.logica.AccessCategoria;
 
@@ -18,6 +22,8 @@ import tech_world.logica.AccessCategoria;
 @ManagedBean(name = "mbcategoria")
 @SessionScoped
 public class HBCategoria {
+    
+    private List<SelectItem> listCategoria;
     private List<Categoria> Categoria;
     /**
      * Creates a new instance of HBCategoria
@@ -27,11 +33,11 @@ public class HBCategoria {
     
      private Categoria categoria = new Categoria();
 
-    public Categoria getCliente() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCliente(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
     
@@ -46,4 +52,27 @@ public class HBCategoria {
          Categoria= categoria.getCategoria();
         return Categoria;
     }      
+    
+    public List<SelectItem> getListCategoria() {        
+        this.listCategoria= new ArrayList<SelectItem>();
+        AccessCategoria categoria = new AccessCategoria();
+        List<Categoria> p= categoria.getCategoria();
+        listCategoria.clear();
+        
+        for(Categoria listCategoria:p){
+            SelectItem categoriaItem= new SelectItem(listCategoria.getCategoriaCod(),listCategoria.getCategoriaDescripcion());
+            this.listCategoria.add(categoriaItem);
+        }
+        
+        return listCategoria;
+    }
+    public void nuevaCategoria(){
+        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        String categoriaDescripcion = request.getParameter("formCategoria:categoriaNombre");
+        AccessCategoria accessCategoria= new AccessCategoria();
+        Categoria c= new Categoria();
+        c.setCategoriaCod(null);
+        c.setCategoriaDescripcion(categoriaDescripcion);
+        accessCategoria.insertarCategoria(c);
+    }
 }
