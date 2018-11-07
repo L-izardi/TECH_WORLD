@@ -31,6 +31,8 @@ public class AccessBodega {
      
        List<Bodega>listBodegas=null;
        try{
+           this.session=HibernateUtil
+                    .getSessionFactory().openSession();
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Bodega");
        listBodegas=(List<Bodega>)q.list();

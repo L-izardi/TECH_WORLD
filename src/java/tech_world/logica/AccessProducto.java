@@ -32,7 +32,10 @@ public class AccessProducto {
     public List getProducto(){
        List<Producto>listProductos=null;
        try{
+            this.session=HibernateUtil
+                    .getSessionFactory().openSession();
        Transaction tx= session.beginTransaction();
+       
        Query q=session.createQuery("from Producto");
        listProductos=(List<Producto>)q.list();
        tx.commit();

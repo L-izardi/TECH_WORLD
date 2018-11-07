@@ -31,6 +31,8 @@ public class AccessProveedor {
      
        List<Proveedor>listProveedor=null;
        try{
+           this.session=HibernateUtil
+                    .getSessionFactory().openSession();
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Proveedor");
        listProveedor=(List<Proveedor>)q.list();

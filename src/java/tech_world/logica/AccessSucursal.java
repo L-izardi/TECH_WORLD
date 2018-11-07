@@ -33,6 +33,8 @@ public class AccessSucursal {
     public List getSucursal(){
        List<Sucursal>listSucursal=null;
        try{
+           this.session=HibernateUtil
+                    .getSessionFactory().openSession();
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Sucursal");
        listSucursal=(List<Sucursal>)q.list();

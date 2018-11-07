@@ -11,8 +11,9 @@
     </h:head>
   <h:body rendered="#{mbcliente.verificarSesion()}">        
         <ui:include src="menu.xhtml" /> 
+        <ui:include src="Admin/librerias.xhtml" /> 
     <h:form>           
-      <b:column span="2" >
+      <b:column span="2"  >
         <b:panel  title="Categorias">
           <b:listLinks> 
             <h:dataTable value="#{mbcategoria.categorias}" var="cli">            
@@ -20,38 +21,51 @@
                    <b:navLink  > #{cli.categoriaDescripcion}</b:navLink>
                 </h:column> 
             </h:dataTable>
+              
           </b:listLinks>
         </b:panel>
       </b:column>
       <b:column span="10" >
           <h:form> 
-              <b:dataTable value="#{mbproducto.productos}"  var="prod"
+              <h:dataTable value="#{mbproducto.productos}"  var="prod">
                            page-length="5"
                            page-length-menu="5,10,20">
-                <b:dataTableColumn  value="#{prod.productoNombre}">
+                <b:dataTableColumn >
                     <f:facet name="header">
                        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Productos Disponibles</li>
+                          <li>Productos</li>
                        </ul>
-                    </f:facet>
-                     
-                <div class='row  '>
-                    <div class='col-xs-12 col-md-4' style='margin: 0 auto; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: lightgray;'>
-                        <div class='contenedor_producto' style='margin:0 auto; margin-top:20px; margin-bottom: 20px;' >
-                            <div class='area_imagen'  style="width:200px; height:160px; background-image: url('#{prod.productoImagen}'); background-repeat:no-repeat; background-size:contain;background-position: center center;">
-                            </div>
-                            <div class='descripcion' >
-                                <div style='padding-top:10px;'>
-                                    <a style='text-decoration:none; color:black;' href='#'>#{prod.productoNombre} </a>
-                                </div>                
-                                <div><span style='color:#f47920'><b><i><a style='text-decoration:none; color:darkorange;' href='#'>Precio normal: #{prod.productoPrecio}</a></i></b></span>
-                                </div>
+                    </f:facet>                     
+                <div class='row'>
+                    <div class='col-xs-12 col-md-4'>
+                        <div  style='margin:0 auto; margin-top:20px; margin-bottom: 20px;' >
+                            <div class='area_imagen'  style="width:170px; height:130px; background-image: url('#{prod.productoImagen}'); background-repeat:no-repeat; background-size:contain;background-position: center center;">
                             </div>
                         </div>
                     </div>
-               </div>              
-                </b:dataTableColumn>                
-             </b:dataTable>
+                            <div class='col-md-4 ' >
+                                <div style='padding-top:10px;'>
+                                    <a style='text-decoration:none; color:black;' href='#'> #{prod.productoNombre} </a>
+                                </div>                
+                                <div><span style='color:#f47920'><b><i><a style='text-decoration:none; color:darkorange;' href='#'>Precio normal: #{prod.productoPrecio}</a></i></b></span>
+                                    <br/>
+                                    <br/>
+                                    <b:button class="btn btn-danger btn-sm"  icon-awesome="shopping-cart" icon-size="lg" value="Añadir"></b:button>
+                                </div>                                
+                            </div>
+                </div>
+                   
+                            
+                </b:dataTableColumn>
+                <b:dataTableColumn  value="">
+                    <f:facet name="header">
+                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                          <li>Disponible en: </li>
+                       </ul>
+                    </f:facet>
+                    #{prod.categoria.categoriaDescripcion}
+                </b:dataTableColumn>
+             </h:dataTable>
           </h:form>          
       </b:column>       
     </h:form>

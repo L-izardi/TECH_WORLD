@@ -49,6 +49,8 @@ public class AccessUsuario {
     public List getUsuario(){
        List<Usuario>listUsuarios=null;
        try{
+           this.session=HibernateUtil
+                    .getSessionFactory().openSession();
        Transaction tx= session.beginTransaction();
        Query q=session.createQuery("from Usuario");
        listUsuarios=(List<Usuario>)q.list();
