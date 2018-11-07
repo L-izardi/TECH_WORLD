@@ -25,29 +25,35 @@
             </div>
             <div class="card-body">
                 <h:form id="formCliente">
-                    <br></br>
+
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><h:graphicImage value="img/usuario.png" /></span>
                         </div>
-                        <h:inputText id="nombre" class="form-control" p:placeholder="Nombre"/>
+                        <h:inputText id="nombre" class="form-control" p:placeholder="Nombre" required="true"
+                                     requiredMessage="Nombre obligatorio"/>
                     </div>
+                    <h:message for="nombre" class="error-message"  />
                     
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><h:graphicImage value="img/usuario.png" /></span>
                         </div>
-                        <h:inputText id="apellido" class="form-control" p:placeholder="Apellido"/>
+                        <h:inputText id="apellido" class="form-control" p:placeholder="Apellido" required="true"
+                                     requiredMessage="Apellido obligatorio"/>
                     </div>
+                    <h:message for="apellido" class="error-message"  />
                     
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><h:graphicImage value="img/usuario.png" /></span>
                         </div>
-                        <h:inputText id="DPI" class="form-control" p:placeholder="DPI">
-                            <f:validateLongRange minimum="-13" maximum="13"></f:validateLongRange>
+                        <h:inputText id="DPI" class="form-control" p:placeholder="DPI" required="true"
+                                     requiredMessage="DPI obligatorio">
+                            <f:validateLength minimum="13" maximum="13"/>
                         </h:inputText>
                     </div>
+                    <h:message for="DPI" class="error-message"  />
                     
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
