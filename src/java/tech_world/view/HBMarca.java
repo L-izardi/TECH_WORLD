@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Marca;
 import tech_world.logica.AccessMarca;
 
@@ -27,21 +29,21 @@ public class HBMarca {
     public HBMarca() {
     }
     private List<SelectItem> listMarca;
-    private List<Marca> marca;
-    private Marca m;
+    private List<Marca> Marca;
+    private Marca marca = new Marca();
 
     public Marca getMarca() {
-        return m;
+        return marca;
     }
 
     public void setMarca(Marca marca) {
-        this.m = marca;
+        this.marca = marca;
     }
       
     public List<Marca> getMarcas() {
         AccessMarca m = new AccessMarca();
-        marca= m.getMarca();
-        return marca;
+        Marca= m.getMarca();
+        return Marca;
     }
     
     public List<SelectItem> getListMarca() {        
@@ -56,5 +58,14 @@ public class HBMarca {
         }
         
         return listMarca;
+    }
+    public void nuevaMarca(){
+        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        String marcaNombre = request.getParameter("formMarca:marcaNombre");
+        AccessMarca accessMarca= new AccessMarca();
+        Marca m= new Marca();
+        m.setMarcaCod(null);
+        m.setNombre(marcaNombre);
+        accessMarca.insertarMarca(m);
     }
 }

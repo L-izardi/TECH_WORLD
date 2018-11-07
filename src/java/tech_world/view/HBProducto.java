@@ -5,11 +5,17 @@
  */
 package tech_world.view;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import tech_world.dao.Categoria;
 import tech_world.dao.Marca;
 import tech_world.dao.Producto;
@@ -25,6 +31,7 @@ public class HBProducto {
 
     private List<Producto> productos;    
     private Producto  producto = new Producto(); 
+    private Part file; 
     /**
      * Creates a new instance of HBProducto
      */
@@ -43,30 +50,44 @@ public class HBProducto {
         productos= bdProducto.getProducto();
         return productos;
     }
-    public void nuevoProducto(){       
+
+    public Part getFile() {
+        return file;
+    }
+
+    public void setFile(Part file) {
+        this.file = file;
+    }
+    
+    public void nuevoProducto() throws IOException{       
+       
        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
        String productoNombre = request.getParameter("fmrProductos:nombre");
        int idCategoria  = Integer.parseInt(request.getParameter("fmrProductos:idCategoria")); 
        int idMarca  = Integer.parseInt(request.getParameter("fmrProductos:idMarca"));
        float productoPrecio  = Float.parseFloat(request.getParameter("fmrProductos:precio"));
        String productoGarantia  = request.getParameter("fmrProductos:garantia");
-       String imagen  = request.getParameter("fmrProductos:imagen");
-      
-        AccessProducto accessProducto= new AccessProducto();
-        Categoria cat= new Categoria();
-        Marca marca= new Marca();
-        cat.setCategoriaCod(idCategoria);
-        marca.setMarcaCod(idMarca);
-        Producto p= new Producto();
-        p.setProductoCod(null);
-        p.setProductoNombre(productoNombre);
-        p.setCategoria(cat);
-        p.setMarca(marca);
-        p.setProductoPrecio(productoPrecio);
-       // p.setProductoImagen(imagen);
-        p.setProductoGarantia(productoGarantia);
-        
-        accessProducto.insertarProducto(p);
+       
+       InputStream input = file.getInputStream();
+       Files.copy(input, new File("C:\\Users\\Lizardi Alarcon\\Documents\\NetBeansProjects\\Tech_World\\web\\img\\productos", file.getSubmittedFileName()).toPath());
+     
+       String img= "img/productos/"+file.getSubmittedFileName();
+       
+       AccessProducto accessProducto= new AccessProducto();
+       Categoria cat= new Categoria();
+       Marca marca= new Marca();
+       cat.setCategoriaCod(idCategoria);
+       marca.setMarcaCod(idMarca);
+       Producto p= new Producto();
+       p.setProductoCod(null);
+       p.setProductoNombre(productoNombre);
+       p.setCategoria(cat);
+       p.setMarca(marca);
+       p.setProductoPrecio(productoPrecio);
+       p.setProductoImagen(img);
+       p.setProductoGarantia(productoGarantia);
+       
+       accessProducto.insertarProducto(p);
         
     }
 }

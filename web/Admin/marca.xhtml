@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Marca</title>
+    </h:head>
+    <h:body rendered="#{mbusuario.verificarSesion()}">
+        <ui:include src="menu.xhtml" />  
+        <div class="container">
+			<h1>Marcas</h1>
+                        <br></br>
+			<div class="row">
+                            <div class="col-sm-4">
+                                <h:form id="formMarca">
+                                    <label>Categoria </label>
+                                    <h:inputText class="form-control input-sm" id="marcaNombre" />
+                                    <br></br>
+                                    <h:commandButton action="#{mbmarca.nuevaMarca()}" id="btnAgregarProducto" class="btn btn-primary" value="Agregar Nueva Marca" />           
+                                </h:form>
+                            </div>
+                        <div class="col-sm-1"></div>
+				<div class="col-sm-6">
+                                    <div id="tablaBodega">
+                                        <b:dataTable id="listPais" value="#{mbmarca.marcas}"  var="marca"  
+                                                page-length="5"
+                                                page-length-menu="5,10,20">
+
+                                            <b:dataTableColumn  value="#{marca.nombre}">
+                                                <f:facet name="header">
+                                                   <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                      <li>Nombre</li>
+                                                   </ul>
+                                                </f:facet>
+                                            </b:dataTableColumn>
+                                            
+                                        </b:dataTable>
+              
+                                    </div>
+				</div>
+                        </div>
+        </div>
+    </h:body>
+</html>

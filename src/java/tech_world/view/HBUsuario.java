@@ -5,9 +5,12 @@
  */
 package tech_world.view;
 
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import tech_world.dao.Funcion;
 import tech_world.dao.Usuario;
 import tech_world.logica.AccessUsuario;
 
@@ -19,6 +22,7 @@ import tech_world.logica.AccessUsuario;
 @RequestScoped
 public class HBUsuario {
 
+    private List<Usuario> ListUsuario;
     /**
      * Creates a new instance of HBUsuario
      */
@@ -34,6 +38,12 @@ public class HBUsuario {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    public List<Usuario> getUsuarios() {
+        AccessUsuario accessUsuario = new AccessUsuario();
+        ListUsuario= accessUsuario.getUsuario();
+        return ListUsuario;
+    } 
     
     public String verificarDatos() throws Exception{
         AccessUsuario accessUsuario = new AccessUsuario();
@@ -58,7 +68,7 @@ public class HBUsuario {
     /**
      * Creates a new instance of HBcliente
      */
-       
+        
     public boolean verificarSesion(){
         boolean estado;
         
@@ -78,5 +88,25 @@ public class HBUsuario {
         FacesContext.getCurrentInstance().getExternalContext()
                 .invalidateSession();
         return "login.xhtml?faces-redirect=true";
+    } 
+    public void nuevoUsuario(){
+       HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+       String usuarioNombre = request.getParameter("formUsuario:nombre");
+       String usuarioApellido  = request.getParameter("formUsuario:apellido"); 
+       String usuarioNick = request.getParameter("formUsuario:nick");
+       String usuarioPass  = request.getParameter("formUsuario:pass");
+       int idFuncion  = Integer.parseInt(request.getParameter("formUsuario:idFuncion"));
+       AccessUsuario accessUsuario = new AccessUsuario();
+       Usuario u= new Usuario();
+       u.setUsuarioNombre(usuarioNombre);
+       u.setUsuarioApellido(usuarioApellido);
+       u.setUsuarioNick(usuarioNick);
+       u.setUsuarioPass(usuarioPass);
+       Funcion funcion= new Funcion();
+       funcion.setFuncionCod(idFuncion);
+       u.setFuncion(funcion);
+       
+       accessUsuario.insertarUsuario(u);
+        
     }
 }

@@ -2,99 +2,109 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Productos</title>
+        <title>Producto</title>
     </h:head>
-    <h:body>
-        <ui:include src="menu.xhtml" />  
-        <h2 align="center"> 
-        <p style="color:#FF0000">PRODUCTOS</p>
-        </h2>
-        
-        <h:form id="formProductos">
-            <br></br>
-            <b:column span="1"> </b:column>
-            <b:column span="4" >
-               <h:outputLabel for="" value ="Nuevo Producto"/>  
-            <h:panelGrid columns="3">               
-                <h:outputLabel for="txtNombre" value ="Nombre"/>
-                 <h:inputText id="txtNombre" label="Ingrese Nombre" required="true" />
-                 <h:message for="txtNombre"/> 
-                <h:outputLabel for="txtNombre" value ="Categoria"/>
-                <h:selectOneMenu id="idCategoria" value="#{mbcategoria.categoria.categoriaCod}">
-                <f:selectItem itemLabel="--Seleccione--"/>
-                <f:selectItems value="#{mbcategoria.listCategoria}"/>
-                </h:selectOneMenu>
-                <h:message for="cmbCategoria"/>
-                <h:outputLabel for="txtNombre" value ="Marca"/>
-                <h:selectOneMenu id="idMarca" value="#{mbmarca.marca.marcaCod}">
-                <f:selectItem itemLabel="--Seleccione--"/>
-                <f:selectItems value="#{mbmarca.listMarca}"/>
-                </h:selectOneMenu>
-                <h:message for="cmbMarca"/>
-                <h:outputLabel for="txtGarantia" value ="Garantia"/>
-                <h:inputText id="txtGarantia" label="Ingrese la garantia del producto" required="true" />
-                <h:message for="txtGarantia"/>                
-                
-                <h:commandButton action="#{mbbodega.nuevaBodega()}" value="Guardar Nuevo Producto"/>
-                                
-            </h:panelGrid>
-            </b:column>
-        <!--
-       <b:column span="6" >
-           <b:dataTable value="#{mbbodega.bodegas}"  var="bod" class="editableBodega" 
-                           page-length="5"
-                           page-length-menu="5,10,20">
-              
-                <b:dataTableColumn  value="#{bod.bodegaNombre}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Nombre</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-                <b:dataTableColumn  value="#{bod.bodegaDireccion}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Direccion</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-               <b:dataTableColumn  value="#{bod.bodegaTelefono}">
-                    <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Telefono</li>
-                       </ul>
-                    </f:facet></b:dataTableColumn>
-                <b:dataTableColumn >
-               <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Editar</li>
-                       </ul>
-                    </f:facet>
-                    <b:commandButton value="edit" icon="edit" ajax="true" update="@(.editableBodega)"
-                       onclick="ajax:car.edit()" >
-                    </b:commandButton>
-               </b:dataTableColumn>
-               
-               <b:dataTableColumn >
-               <f:facet name="header">
-                       <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
-                          <li>Elimnar</li>
-                       </ul>
-                    </f:facet>
-                    <b:commandButton value="delete" icon="trash" ajax="true" update="@(.editableBodega)"
-                       onclick="ajax:car.edit()" >
-                    </b:commandButton>
-               </b:dataTableColumn>
-                    
-               
-             </b:dataTable>
-          
-      </b:column>
-        -->   
-        </h:form>
-    </h:body>
-
+   <h:body>
+       <ui:include src="menu.xhtml" />       
+		<div class="container">
+			<h1>Productos</h1>
+			<div class="row">
+				<div class="col-sm-4">
+					<h:form id="fmrProductos" enctype="multipart/form-data">
+						<label>Nombre</label>
+						<h:inputText  class="form-control input-sm" id="nombre" />
+                                                <label>Categoria</label>
+                                                 <div class="row">
+							<div class="col-sm-6">                                                        
+                                                        <h:selectOneMenu class="form-control input-sm" id="idCategoria" value="#{mbcategoria.categoria.categoriaCod}">
+                                                        <f:selectItem itemLabel="-Seleccione Categoria-"/>
+                                                        <f:selectItems value="#{mbcategoria.listCategoria}"/>
+                                                        </h:selectOneMenu>	
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <b:button  class="btn btn-default btn-sm" href="categoria.xhtml" value="Nueva Categoria"/>
+							</div>
+                                                 </div>  
+                                                					
+						<label>Marcas</label>                                                
+                                                    <div class="row">
+							<div class="col-sm-6"> 
+                                                            <h:selectOneMenu class="form-control input-sm" id="idMarca" value="#{mbmarca.marca.marcaCod}">
+                                                                    <f:selectItem itemLabel="-Seleccione Marca-"/>
+                                                                    <f:selectItems value="#{mbmarca.listMarca}"/>
+                                                                </h:selectOneMenu>
+                                                        </div>
+							<div class="col-sm-6">
+                                                            <b:button id="btnNuevaMarca" href="marca.xhtml" class="btn btn-default btn-sm" value="Nueva Marca"/>
+								</div>
+                                                    </div>  
+						<p></p>
+                                                <label>Precio</label>
+						<h:inputText class="form-control input-sm" id="precio"/>
+							
+						<label>Garantia</label>
+						<h:inputText  class="form-control input-sm" id="garantia" />
+						<label>Bodega</label>
+						<p></p>
+						<label  class="btn btn-default btn-block " data-toggle="modal" data-target="#enStock">Bodegas 
+							<span class= "glyphicon glyphicon-import"></span>
+						</label>
+						<p></p>
+						<label>Imagen</label>
+                                                
+                                                <h:inputFile value="#{mbproducto.file}"/>                                               
+                                                
+						<br></br>                                                        
+                                                <h:commandButton action="#{mbproducto.nuevoProducto()}" class="btn btn-primary" value="Guardar Nuevo Producto"/>
+                                                       
+                                        </h:form>
+							</div>
+							<div class="col-sm-8">
+                                                            <div id="tablaProductos">
+                                                                <b:dataTable value="#{mbproducto.productos}" var="prod">
+                                                                    <b:dataTableColumn value="#{prod.productoNombre}">
+                                                                      <f:facet name="header">
+                                                                            <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                                            <li>Nombre</li>
+                                                                            </ul>
+                                                                      </f:facet></b:dataTableColumn>
+                                                                    <b:dataTableColumn  value="#{prod.categoria.categoriaCod}">
+                                                                      <f:facet name="header">
+                                                                            <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                                            <li>Categoria</li>
+                                                                            </ul>
+                                                                      </f:facet>
+                                                                    </b:dataTableColumn>
+                                                                    <b:dataTableColumn value="#{prod.marca.marcaCod}">
+                                                                      <f:facet name="header">
+                                                                            <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                                            <li>Marca</li>
+                                                                            </ul>
+                                                                      </f:facet>
+                                                                       
+                                                                      </b:dataTableColumn>
+                                                                    <b:dataTableColumn value="#{prod.productoGarantia}">
+                                                                      <f:facet name="header">
+                                                                            <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                                            <li>Garantia</li>
+                                                                            </ul>
+                                                                      </f:facet>
+                                                                      </b:dataTableColumn>
+                                                                    <b:dataTableColumn style="width:100px; height:60px; background-image: url('../#{prod.productoImagen}'); background-repeat:no-repeat; background-size:contain;background-position: center center;" >
+                                                                      <f:facet name="header">
+                                                                            <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+                                                                            <li>Imagen</li>
+                                                                            </ul>
+                                                                      </f:facet>
+                                                                    </b:dataTableColumn>
+                                                                </b:dataTable>
+                                                            </div>
+							</div>
+						</div>
+					</div>
+   </h:body>
 </html>

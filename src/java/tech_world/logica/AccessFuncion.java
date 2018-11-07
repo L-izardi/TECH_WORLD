@@ -4,45 +4,37 @@
  * and open the template in the editor.
  */
 package tech_world.logica;
+
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import tech_world.dao.Marca;
+import tech_world.dao.Funcion;
 import tech_world.utils.HibernateUtil;
+
 /**
  *
  * @author Lizardi Alarcon
  */
-public class AccessMarca {
+public class AccessFuncion {
     Session session = null;
-    public AccessMarca(){
+    public AccessFuncion(){
         if(session==null){
             this.session=HibernateUtil
                     .getSessionFactory()
                     .getCurrentSession();
         }
     }
-    public List getMarca(){       
-       List<Marca>listMarca=null;
+    public List getFuncion(){       
+       List<Funcion>listFuncion=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Marca");
-       listMarca=q.list();
+       Query q=session.createQuery("from Funcion");
+       listFuncion=q.list();
        tx.commit();
        }catch(Exception e){
            e.printStackTrace();
        }
-       return listMarca;
-    }
-     public void insertarMarca(Marca nuevaMarca) {
-        try{
-        Transaction tx= session.beginTransaction();
-        
-        session.save(nuevaMarca);
-        tx.commit();
-        }catch(Exception e){
-           e.printStackTrace();
-       }
+       return listFuncion;
     }
 }
