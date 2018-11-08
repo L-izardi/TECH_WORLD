@@ -30,7 +30,7 @@ import tech_world.utils.HibernateUtil;
  */
 public class EnviarCorreo {
     
-    public static void enviarCorreo(String username,String password,String smtphost,String port, String recipientes, 
+    public void enviarCorreo(String username,String password,String smtphost,String port, String recipientes, 
                                     String copias, String copiasOcultas, String asunto,String texto,String adjunto)
     {       
 
@@ -90,16 +90,16 @@ public class EnviarCorreo {
                     else{
                         if(f.isDirectory())
                         {
-                            JOptionPane.showMessageDialog(new JFrame(), 
+                            /*JOptionPane.showMessageDialog(new JFrame(), 
                                 "El archivo " + f.getName() + " es un directorio.", 
                                 "Error al adjuntar archivo",                                 
-                                JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.ERROR_MESSAGE);*/
                         }
                         else if(!f.exists()){
-                            JOptionPane.showMessageDialog(new JFrame(),  
+                            /*JOptionPane.showMessageDialog(new JFrame(),  
                                 "El archivo " + f.getName() + " no existe.", 
                                 "Error al adjuntar archivo.",
-                                JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.ERROR_MESSAGE);*/
                         }
                         
                         System.exit(0);
@@ -114,17 +114,17 @@ public class EnviarCorreo {
             Transport transport = session.getTransport("smtp");
             transport.connect(smtphost, username, password);
             transport.sendMessage(message, message.getAllRecipients());
-            JOptionPane.showMessageDialog(new JFrame(), 
+            /*JOptionPane.showMessageDialog(new JFrame(), 
                     "El mensaje se ha enviado correctamente.", 
                     "Envío de Correo", 
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.INFORMATION_MESSAGE);*/
         }
         catch (MessagingException me) {
             me.printStackTrace();
-            JOptionPane.showMessageDialog(new JFrame(), 
+            /*JOptionPane.showMessageDialog(new JFrame(), 
                     me.getMessage(), 
                     "Error al enviar el correo", 
-                    JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);*/
             System.exit(0);
         }
     }

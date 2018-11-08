@@ -89,3 +89,11 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+
+#messages{
+    padding: 10px;
+    margin: 10px;
+}
+#messages li.error{
+    color: red;
+}

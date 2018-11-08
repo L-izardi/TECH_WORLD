@@ -6,6 +6,7 @@
 package tech_world.logica;
 
 import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,7 +30,7 @@ public class AccessCliente {
     }
     
     public Cliente verificarDatos(Cliente cliente) throws Exception{
-    Cliente cli = null; 
+        Cliente cli = null; 
         try{
             session = HibernateUtil.getSessionFactory().openSession();
             String hql ="FROM Cliente WHERE cliente_email = '" + cliente.getClienteEmail()
@@ -47,14 +48,84 @@ public class AccessCliente {
         return cli;
     }
     
-        public void insertarCliente(Cliente nuevoCliente){
-            try{
+    public Cliente getClientePorCorreo(String correo)
+    {
+        Session session = null;
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            String hql ="FROM Cliente WHERE cliente_email = '" + correo + "'";
+            Cliente cliente = (Cliente)session.createQuery(hql).uniqueResult();
+            return cliente;
+        }
+        catch(HibernateException ex){
+            throw new HibernateException(ex);
+        }
+        finally{
+            if(session!=null){
+                session.close();
+            }
+        }  
+    }
+    
+    public void insertarCliente(Cliente nuevoCliente){
+        try{
+        Transaction tx= session.beginTransaction();
+
+        session.save(nuevoCliente);
+        tx.commit();
+        }catch(Exception e){
+           e.printStackTrace();
+       }
+   }
+        
+       public void modificarCliente(Cliente editarCliente){
+           try{
             Transaction tx= session.beginTransaction();
 
-            session.save(nuevoCliente);
+            session.update(editarCliente);
             tx.commit();
             }catch(Exception e){
                e.printStackTrace();
            }
        }
+       
+       public boolean editar(Cliente cliente){
+        Session session = null;
+        try{
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.update(cliente);
+            session.getTransaction().commit();
+            return true;
+        }
+        catch(HibernateException ex){
+            return false;
+        }
+        finally{
+            if(session!=null){
+                session.close();
+            }
+        }
+    }
+       
+        public boolean validarCorreo(String correo) throws Exception{
+            try{
+                session = HibernateUtil.getSessionFactory().openSession();
+                String hql ="FROM Cliente WHERE cliente_email = '" + correo + "'";
+
+                Query query = session.createQuery(hql);
+
+                if(!query.list().isEmpty()){                    
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            catch(HibernateException e){
+                return false;
+            }
+        }
+       
 }

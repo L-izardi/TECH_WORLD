@@ -5,6 +5,7 @@
  */
 package tech_world.view;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -99,22 +100,65 @@ public class HBCliente {
        accessCliente.insertarCliente(cli);
     }
     
-    public void recuperarPassword(){
+    public String recuperarPassword(){
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         
         String Correo = request.getParameter("formRecuperarPass:correo");
-        EnviarCorreo correo = new EnviarCorreo();
-        
-        String usuario = "soporte.techworld@gmail.com";
-        String password = "Tech-World2019";
-        String smtpHost = "smtp.gmail.com";
-        String puerto = "587"; 
-        String asunto = "Recuperar contraseña";
-        String mensaje = "Este es un correo de prueba http://192.168.0.7:8084/Tech_World";
-        
-        correo.enviarCorreo(usuario , password, smtpHost, puerto, Correo, "", "", asunto, mensaje, "");
-        
+        AccessCliente accessCliente = new AccessCliente();
+        FacesContext context = FacesContext.getCurrentInstance();
+        try{            
+            context.getExternalContext().getFlash().setKeepMessages(true);
+            if(accessCliente.validarCorreo(Correo)){
+                EnviarCorreo correo = new EnviarCorreo();
+                String usuario = "soporte.techworld@gmail.com";
+                String password = "Tech-World2019";
+                String smtpHost = "smtp.gmail.com";
+                String puerto = "587"; 
+                String asunto = "Recuperar contraseña Tech-World";
+                String nuevoPassword = "123456789";
+                Cliente c = accessCliente.getClientePorCorreo(Correo);
+                c.setClientePass(nuevoPassword);
+                if(accessCliente.editar(c)){
+                    String mensaje = "Hola " +c.getClienteNick()+"!! Tu nueva contraseña es " + nuevoPassword;
+                    correo.enviarCorreo(usuario , password, smtpHost, puerto, Correo, "", "", asunto, mensaje, "");
+                    context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Se envió correo con su nueva contraseña.",""));
+                    return "index.xhtml?faces-redirect=true";
+                }
+                else{
+                    System.out.println("No se pudo editar el cliente");
+                    context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "No se pudo reestablecer la contraseña.",""));
+                    return "Recuperar_Password.xhtml?faces-redirect=true";
+                } 
+            }
+            else{
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "No se pudo reestablecer la contraseña.",""));
+                return "Recuperar_Password.xhtml?faces-redirect=true";
+            }
+        }
+        catch(Exception ex){
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "No se pudo reestablecer la contraseña.",""));
+            ex.printStackTrace();
+            return "Recuperar_Password.xhtml?faces-redirect=true";
+        }
     }
     
+    public void cambiarPassword(){
+        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        
+        String correo = "cperez@gmail.com";
+        String Password = "1234";
+
+        AccessCliente accessCliente = new AccessCliente();
+        Cliente cli = new Cliente();
+
+        cli.setClientePass(Password);
+      
+           accessCliente.modificarCliente(cli);
+       
+    }
 }
 
