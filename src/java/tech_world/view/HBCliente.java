@@ -106,11 +106,11 @@ public class HBCliente {
         EnviarCorreo correo = new EnviarCorreo();
         
         String usuario = "soporte.techworld@gmail.com";
-        String password = "Tech-World2018";
+        String password = "Tech-World2019";
         String smtpHost = "smtp.gmail.com";
         String puerto = "587"; 
         String asunto = "Recuperar contraseña";
-        String mensaje = "Este es un correo de prueba";
+        String mensaje = "Este es un correo de prueba http://192.168.0.7:8084/Tech_World";
         
         correo.enviarCorreo(usuario , password, smtpHost, puerto, Correo, "", "", asunto, mensaje, "");
         
