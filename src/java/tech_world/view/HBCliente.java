@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import tech_world.dao.Cliente;
 import tech_world.logica.AccessCliente;
+import tech_world.logica.EnviarCorreo;
 
 /**
  *
@@ -96,7 +97,24 @@ public class HBCliente {
        cli.setClienteEmail(ClienteCorreo);
        cli.setClientePass(ClientePassword);
        accessCliente.insertarCliente(cli);
-                
     }
+    
+    public void recuperarPassword(){
+        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        
+        String Correo = request.getParameter("formRecuperarPass:correo");
+        EnviarCorreo correo = new EnviarCorreo();
+        
+        String usuario = "soporte.techworld@gmail.com";
+        String password = "Tech-World2018";
+        String smtpHost = "smtp.gmail.com";
+        String puerto = "587"; 
+        String asunto = "Recuperar contraseña";
+        String mensaje = "Este es un correo de prueba";
+        
+        correo.enviarCorreo(usuario , password, smtpHost, puerto, Correo, "", "", asunto, mensaje, "");
+        
+    }
+    
 }
 
