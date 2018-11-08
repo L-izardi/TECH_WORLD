@@ -5,8 +5,10 @@
  */
 package tech_world.view;
 
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import tech_world.dao.ProductoBodega;
 
 /**
  *
@@ -21,7 +23,12 @@ public class HBDisponible {
      */
     public HBDisponible() {
     }
-    
-    
+    private List <ProductoBodega> disponibilidad;
+
+    public List<ProductoBodega> getDisponibilidad() {
+        
+        return disponibilidad;
+    }
+
     
 }

@@ -29,7 +29,7 @@ import tech_world.logica.AccessProducto;
 @SessionScoped
 public class HBProducto {
 
-    private List<Producto> productos;    
+    private List<Producto> productos;   
     private Producto  producto = new Producto(); 
     private Part file; 
     /**
@@ -47,10 +47,17 @@ public class HBProducto {
     }
     public List<Producto> getProductos() {
         AccessProducto bdProducto = new AccessProducto();
-        productos= bdProducto.getProducto();
+        productos= bdProducto.getProducto();        
         return productos;
     }
-
+    public List<Producto> getProductoCategoria() {               
+        return productos;
+    }
+    
+    public void selectCategoria(int cod){
+        AccessProducto bdProducto = new AccessProducto();
+        productos= bdProducto.selectCategoria(cod ); 
+    }
     public Part getFile() {
         return file;
     }
@@ -89,5 +96,5 @@ public class HBProducto {
        
        accessProducto.insertarProducto(p);
         
-    }
+    }    
 }

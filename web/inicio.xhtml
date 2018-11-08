@@ -11,14 +11,14 @@
     </h:head>
   <h:body rendered="#{mbcliente.verificarSesion()}">        
         <ui:include src="menu.xhtml" /> 
-        <ui:include src="Admin/librerias.xhtml" /> 
     <h:form>           
       <b:column span="2"  >
         <b:panel  title="Categorias">
           <b:listLinks> 
             <h:dataTable value="#{mbcategoria.categorias}" var="cli">            
                <h:column >
-                   <b:navLink  > #{cli.categoriaDescripcion}</b:navLink>
+                   <b:navLink> #{cli.categoriaDescripcion}</b:navLink>
+                   
                 </h:column> 
             </h:dataTable>
               
@@ -26,10 +26,14 @@
         </b:panel>
       </b:column>
       <b:column span="10" >
-          <h:form> 
-              <h:dataTable value="#{mbproducto.productos}"  var="prod">
+       <h:form id="form"> 
+              <b:dataTable id='prd'
+                           value="#{mbproducto.productos}"
+                           var="prod"
+                            fixedHeader="true"
                            page-length="5"
                            page-length-menu="5,10,20">
+             
                 <b:dataTableColumn >
                     <f:facet name="header">
                        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
@@ -45,7 +49,11 @@
                     </div>
                             <div class='col-md-4 ' >
                                 <div style='padding-top:10px;'>
-                                    <a style='text-decoration:none; color:black;' href='#'> #{prod.productoNombre} </a>
+                                    <a style='text-decoration:none; color:#BC2307;' href='#'> #{prod.productoNombre} </a>
+                                    <br/>
+                                    <a style='text-decoration:none; color:#BC8807;' href='#'> #{prod.marca.nombre} </a>
+                                    <br/>
+                                    <a style='text-decoration:none; color:black;' href='#'> #{prod.categoria.categoriaDescripcion} </a>
                                 </div>                
                                 <div><span style='color:#f47920'><b><i><a style='text-decoration:none; color:darkorange;' href='#'>Precio normal: #{prod.productoPrecio}</a></i></b></span>
                                     <br/>
@@ -57,17 +65,17 @@
                    
                             
                 </b:dataTableColumn>
-                <b:dataTableColumn  value="">
+                  <b:dataTableColumn  value="#{prod.productoCod}">
                     <f:facet name="header">
                        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
                           <li>Disponible en: </li>
-                       </ul>
-                    </f:facet>
-                    #{prod.categoria.categoriaDescripcion}
+                       </ul>                       
+                    </f:facet>                      
+                   
                 </b:dataTableColumn>
-             </h:dataTable>
-          </h:form>          
-      </b:column>       
+             </b:dataTable>
+          </h:form>      
+      </b:column>   
     </h:form>
   </h:body>   
 </html>

@@ -9,6 +9,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import tech_world.dao.Categoria;
 import tech_world.dao.Producto;
 import tech_world.utils.HibernateUtil;
 
@@ -44,11 +45,11 @@ public class AccessProducto {
        }
        return listProductos;
     }
-    public List selectCategoria(Producto producto){
+    public List selectCategoria(int ct){
         List<Producto>listProductos=null;
         try{
         Transaction tx= session.beginTransaction();
-        String hql="FROM Producto WHERE producto_categoria_cod = '"+ producto.getCategoria()+"'";
+        String hql="FROM Producto WHERE producto_categoria_cod = '"+ ct+"'";
         Query query = session.createQuery(hql);
         listProductos=(List<Producto>)query.list();
         tx.commit();
