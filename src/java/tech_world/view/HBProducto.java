@@ -10,8 +10,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +34,19 @@ public class HBProducto {
     private List<Producto> productos;   
     private Producto  producto = new Producto(); 
     private Part file; 
+    int categoriaId = 0;
     /**
      * Creates a new instance of HBProducto
      */
     public HBProducto() { 
-       
+       try{
+            categoriaId = 
+                Integer.parseInt((String)FacesContext.getCurrentInstance().getExternalContext()
+                    .getRequestParameterMap().get("id"));
+        }
+        catch(NumberFormatException ex){
+            categoriaId = 0;
+        } 
     }
     public Producto getProducto() {
         return producto;
@@ -46,10 +56,22 @@ public class HBProducto {
         this.producto = producto;
     }
     public List<Producto> getProductos() {
+        try{
+            categoriaId = 
+                Integer.parseInt((String)FacesContext.getCurrentInstance().getExternalContext()
+                    .getRequestParameterMap().get("id"));
+        }
+        catch(NumberFormatException ex){
+            categoriaId = 0;
+        }
         AccessProducto bdProducto = new AccessProducto();
-        productos= bdProducto.getProducto();        
+        if(categoriaId == 0)
+            productos = bdProducto.getProducto();
+        else
+            productos = bdProducto.selectCategoria(categoriaId);
         return productos;
     }
+    
     public List<Producto> getProductoCategoria() {               
         return productos;
     }

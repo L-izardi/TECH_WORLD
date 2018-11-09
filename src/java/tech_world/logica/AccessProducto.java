@@ -6,6 +6,7 @@
 package tech_world.logica;
 
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -45,19 +46,21 @@ public class AccessProducto {
        }
        return listProductos;
     }
+    
     public List selectCategoria(int ct){
         List<Producto>listProductos=null;
-        try{
-        Transaction tx= session.beginTransaction();
-        String hql="FROM Producto WHERE producto_categoria_cod = '"+ ct+"'";
-        Query query = session.createQuery(hql);
-        listProductos=(List<Producto>)query.list();
-        tx.commit();
-        
-        }catch(Exception e){
+       try{
+            this.session=HibernateUtil
+                    .getSessionFactory().openSession();
+            Transaction tx= session.beginTransaction();
+       
+            Query q=session.createQuery("from Producto where producto_categoria_cod = " + ct);
+            listProductos=(List<Producto>)q.list();
+            tx.commit();
+       }catch(Exception e){
            e.printStackTrace();
        }
-        return listProductos;
+       return listProductos;
     }
      public void insertarProducto(Producto producto){
         try{

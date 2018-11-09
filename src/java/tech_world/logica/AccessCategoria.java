@@ -33,7 +33,7 @@ public class AccessCategoria {
        List<Categoria>listCategoria=null;
        try{
        Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Categoria");
+       Query q=session.createQuery("from Categoria order by categoria_descripcion");
        listCategoria=(List<Categoria>)q.list();
        tx.commit();
        }catch(Exception e){

@@ -25,10 +25,12 @@ public class HBCategoria {
     
     private List<SelectItem> listCategoria;
     private List<Categoria> Categoria;
+    private int categoriaId = 0;
     /**
      * Creates a new instance of HBCategoria
     */
     public HBCategoria() {
+               
     } 
     
      private Categoria categoria = new Categoria();
@@ -43,24 +45,24 @@ public class HBCategoria {
     
     
     public List<Categoria> getCategorias() {
-        AccessCategoria categoria = new AccessCategoria();
-        Categoria= categoria.getCategoria();
+        AccessCategoria aCategoria = new AccessCategoria();
+        Categoria = aCategoria.getCategoria();
         return Categoria;
     }
     public List<Categoria> busqCategoria(){
-         AccessCategoria categoria = new AccessCategoria();
-         Categoria= categoria.getCategoria();
+         AccessCategoria aCategoria = new AccessCategoria();
+         Categoria= aCategoria.getCategoria();
         return Categoria;
     }      
     
     public List<SelectItem> getListCategoria() {        
-        this.listCategoria= new ArrayList<SelectItem>();
-        AccessCategoria categoria = new AccessCategoria();
-        List<Categoria> p= categoria.getCategoria();
+        this.listCategoria = new ArrayList<>();
+        AccessCategoria aCategoria = new AccessCategoria();
+        List<Categoria> p= aCategoria.getCategoria();
         listCategoria.clear();
         
-        for(Categoria listCategoria:p){
-            SelectItem categoriaItem= new SelectItem(listCategoria.getCategoriaCod(),listCategoria.getCategoriaDescripcion());
+        for(Categoria lc:p){
+            SelectItem categoriaItem= new SelectItem(lc.getCategoriaCod(),lc.getCategoriaDescripcion());
             this.listCategoria.add(categoriaItem);
         }
         
