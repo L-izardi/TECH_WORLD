@@ -41,20 +41,7 @@ public class AccessCategoria {
        }
        return listCategoria;
     }
-    
-    public List busCategoria(Categoria categoria){
-        List<Categoria>listCategoria=null;
-       try{
-       Transaction tx= session.beginTransaction();
-       Query q=session.createQuery("from Categoria where '"+categoria.getCategoriaDescripcion()+ "'");
-       listCategoria=(List<Categoria>)q.list();
-       tx.commit();
-       }catch(Exception e){
-           e.printStackTrace();
-       } 
-       return listCategoria;
-    } 
-
+   
     public void insertarCategoria(Categoria nuevaCategoria) {
         try{
         Transaction tx= session.beginTransaction();

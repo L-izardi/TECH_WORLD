@@ -49,11 +49,6 @@ public class HBCategoria {
         Categoria = aCategoria.getCategoria();
         return Categoria;
     }
-    public List<Categoria> busqCategoria(){
-         AccessCategoria aCategoria = new AccessCategoria();
-         Categoria= aCategoria.getCategoria();
-        return Categoria;
-    }      
     
     public List<SelectItem> getListCategoria() {        
         this.listCategoria = new ArrayList<>();

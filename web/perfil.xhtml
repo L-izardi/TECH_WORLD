@@ -2,13 +2,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Perfil</title>
     </h:head>
    <h:body rendered="#{mbcliente.verificarSesion()}">
         <ui:include src="menu.xhtml" />  
-        Hello from Facelets
+        <div class="container">
+            <h1>Usuario: #{mbcliente.cliente.clienteNick}</h1>
+            <div class="row">
+                <div class="col-md-2"/>
+                <div class="col-md-4">
+                    <h:form id="formUpdateCliente">
+                        <label>Nick</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <h:inputHidden id="txtId" class="form-control " value="#{mbcliente.cliente.clienteCod}"/>
+                            <h:inputHidden  id="txtNick" class="form-control " value="#{mbcliente.cliente.clienteNick}"/>
+                            <label class="form-control ">#{mbcliente.cliente.clienteNick}</label>
+                            </div>
+                           
+                        </div>                        
+                        <label>Nombre</label>
+                        <h:inputText  id="txtNombre" class="form-control input-sm"  value="#{mbcliente.cliente.clienteNombre}"/>
+                        <label>Apellido</label>
+                        <h:inputText  id="txtApellido" class="form-control input-sm"  value="#{mbcliente.cliente.clienteApellido}"/>
+                        <label>DPI</label>
+                        <h:inputText  id="txtDpi" class="form-control input-sm"  value="#{mbcliente.cliente.clienteDpi}"/>
+                        <label>Email</label>
+                        <h:inputText  id="txtEmail" class="form-control input-sm"  value="#{mbcliente.cliente.clienteEmail}"/>
+                        <label>Contraseña</label>
+                        <h:inputText  id="txtContraseña" class="form-control input-sm"  value="#{mbcliente.cliente.clientePass}"/>
+                        
+                        <br/><br/>
+                        <b:commandButton  action="#{mbcliente.modificarCliente()}" class="btn btn-primary" value="Actualizar Campos" />
+                            
+                                               
+                    </h:form>
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>
 

@@ -14,8 +14,9 @@
     <h:form>           
       <b:column span="2"  >
         <b:panel  title="Categorias">
+          <a href="categorias.xhtml" class="" > Todos</a>
           <h:dataTable value="#{mbcategoria.categorias}" var="cli">
-              <h:column >
+              <h:column >                  
                   <a href="categorias.xhtml?id=#{cli.categoriaCod}" class="" >
                       #{cli.categoriaDescripcion}
                 </a>

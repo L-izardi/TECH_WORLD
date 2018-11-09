@@ -78,18 +78,7 @@ public class AccessCliente {
            e.printStackTrace();
        }
    }
-        
-       public void modificarCliente(Cliente editarCliente){
-           try{
-            Transaction tx= session.beginTransaction();
-
-            session.update(editarCliente);
-            tx.commit();
-            }catch(Exception e){
-               e.printStackTrace();
-           }
-       }
-       
+    
        public boolean editar(Cliente cliente){
         Session session = null;
         try{

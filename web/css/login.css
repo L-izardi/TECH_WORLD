@@ -6,6 +6,7 @@ background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
+color: #00fff5;
 }
 
 .error-message{
@@ -98,6 +99,7 @@ margin-left: 4px;
 #messages{
     padding: 10px;
     margin: 10px;
+    color: #00fff5;
 }
 #messages li.error{
     color: red;

@@ -42,10 +42,7 @@ public class HBBodega {
         Listbodega= bdBodega.getBodegas();
         return Listbodega;
     }
-    public void deleteBodega(){
-        AccessBodega bdBodega = new AccessBodega();
-        
-    }
+    
     public void nuevaBodega(){
        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
        String bodegaNombre = request.getParameter("formBodega:txtNombre");

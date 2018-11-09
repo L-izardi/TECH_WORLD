@@ -44,12 +44,15 @@ public class HBCliente {
                         .getSessionMap().put("cliente", cli);
                  return "categorias.xhtml?faces-redirect=true";
             }else{
-                resultado = "error";
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Datos incorrectos.",""));
+                return "index.xhtml?faces-redirect=false";
+                
             }
         }catch(Exception e){
             throw e;
         }
-        return resultado;
+        //return resultado;
     }
     /**
      * Creates a new instance of HBcliente
@@ -134,7 +137,7 @@ public class HBCliente {
             }
             else{
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "No se pudo reestablecer la contraseña.",""));
+                    "Correo invalido.",""));
                 return "Recuperar_Password.xhtml?faces-redirect=true";
             }
         }
@@ -146,19 +149,33 @@ public class HBCliente {
         }
     }
     
-    public void cambiarPassword(){
-        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        
-        String correo = "cperez@gmail.com";
-        String Password = "1234";
-
-        AccessCliente accessCliente = new AccessCliente();
-        Cliente cli = new Cliente();
-
-        cli.setClientePass(Password);
-      
-           accessCliente.modificarCliente(cli);
+    public void modificarCliente(){
+       try{
+       HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
        
+       int ClienteCod = Integer.parseInt(request.getParameter("formUpdateCliente:txtId"));       
+       String ClienteUsuario = request.getParameter("formUpdateCliente:txtNick");
+       String ClienteNombre = request.getParameter("formUpdateCliente:txtNombre");
+       String ClienteApellido = request.getParameter("formUpdateCliente:txtApellido");
+       long ClienteDPI = Long.valueOf(request.getParameter("formUpdateCliente:txtDpi"));
+       String ClienteCorreo = request.getParameter("formUpdateCliente:txtEmail");
+       String ClientePassword = request.getParameter("formUpdateCliente:txtContraseña");
+       
+       AccessCliente accessCliente = new AccessCliente();
+       Cliente cli = new Cliente();
+       cli.setClienteCod(ClienteCod);
+       cli.setClienteNick(ClienteUsuario);
+       cli.setClienteNombre(ClienteNombre);
+       cli.setClienteApellido(ClienteApellido);
+       cli.setClienteDpi(ClienteDPI);
+       cli.setClienteEmail(ClienteCorreo);
+       cli.setClientePass(ClientePassword);
+       accessCliente.editar(cli);
+       
+       }catch(Exception e){
+           
+       }
     }
+    
 }
 
